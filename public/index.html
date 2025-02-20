@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="inner-content">
+        <nav class="nav-bar-container">
+          <div class="left-nav">
+            <a href="#">
+              <img src="./images/logos/logo_en.png" alt="logo" />
+            </a>
+          </div>
+          <div class="hamburger-menu" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+          <div class="slider-menu">
+            <ul class="nav-list">
+              <li><a href="index.html">Головна</a></li>
+              <li><a href="services.html">Про нас</a></li>
+              <li><a href="about.html">Послуги</a></li>
+              <li><a href="index.html">Команда</a></li>
+              <li><a href="services.html">Новини</a></li>
+              <li><a href="contact.html">Контакти</a></li>
+            </ul>
+            <button class="nav-button">Contact us</button>
+          </div>
+        </nav>
+
+        <section id="main-section">
+          <div class="image-with-text">
+            <div class="text-overlay">
+              <h1>Адвокатське об’єднання Грищенко та партнери Одеса</h1>
+              <p>Ваш надійний партнер у вирішені юридичних питань.</p>
+
+              <button class="main-button">
+                Зв’язатись<ion-icon
+                  name="arrow-forward-outline"
+                  class="button-arrow"
+                ></ion-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 : Amount of work completed and cases completed -->
+        <section id="work-total-container">
+          <div class="content-wrapper">
+            <h3 class="services-heading">Команда</h3>
+           
+            <div class="flex-container">
+              <div class="left-side">
+                <h3>АО “Грищенко та партнери Одеса”</h3>
+                <p>
+                  — це команда з багаторічним досвідом та бездоганною
+                  репутацією, яка успішно працює в галузі юридичних послуг
+                  протягом понад 32 років в Україні.
+                </p>
+                <p>
+                  Наш колектив об'єднує висококваліфікованих юристів з
+                  різноманітним досвідом у різних галузях права. Наші досягнення
+                  та надійність підтверджуються численними успішними справами з
+                  вирішення складних правових питань та високими рейтингами від
+                  наших клієнтів.
+                </p>
+              </div>
+              <div class="right-side">
+                <img src="./images/bg-stock.jpg" alt="logo" />
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat-item">
+                <div class="stat-inner-container">
+                  <strong>25+</strong>
+                  <span>Роки практики</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>86%</strong>
+                  <span>Вирішених справ</span>
+                </p>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>5K</strong>
+                  <span>Щасливі клієнти</span>
+                </p>
+              </div>
+              <div class="stat-item">
+                <p>
+                  <strong>50+</strong>
+                  <span>Міжнародних компаній</span>
+                </p>
+              </div>
+            </div>
+
+            <button class="btn-wc">
+              Дізнатись більше
+              <ion-icon
+                name="arrow-forward-outline"
+                class="service-arrow"
+              ></ion-icon>
+            </button>
+          </div>
+        </section>
+
+        <!-- Section : More Services -->
+        <section id="more-services-container">
+          <div class="content-wrapper">
+            <h3 class="services-heading">Наші послуги</h3>
+            <h2 class="services-sub-heading">Команда</h2>
+            <div class="more-services-flex">
+              <!-- Each service -->
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Кримінальне право</h4>
+                  <p>Представницво у межах досудового розслідування та інше</p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Цивільни справи</h4>
+                  <p>Визнання договору недійсним, розірвання договору</p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Сімейні справи</h4>
+                  <p>Розрвання шлюбу, поділ майна подружжя та інше</p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Господарські справи</h4>
+                  <p>
+                    Супровід підприємства під час ведення господарської
+                    діяльност
+                  </p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Трудові спори</h4>
+                  <p>Юридичний супровід трудових спорів та інше</p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Кредитні спори</h4>
+                  <p>
+                    Списання незаконно нарахованих штрафів, та відсотків по
+                    кредиту
+                  </p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Адміністративні спори</h4>
+                  <p>
+                    Оскарження рішень, дій та бездіяльності суб'єктів владних
+                    повноважень
+                  </p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+              <div class="service">
+                <svg
+                  class="service-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                  />
+                </svg>
+                <div class="service-details">
+                  <h4>Захист бізнесу</h4>
+                  <p>Комплексне абонентське обслуговування бізнесу та інше</p>
+                </div>
+                <ion-icon
+                  name="arrow-forward-outline"
+                  class="service-arrow"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="team-section">
+          <div class="content-wrapper">
+            <h3 class="services-heading">Команда</h3>
+            <h2 class="services-sub-heading">
+              Спільними зусиллями
+              <span class="target-text">ми досягаємо</span> вершин.
+            </h2>
+            <div class="team-nav-container">
+              <div class="team-wrapper">
+                <div class="team-member-card">
+                  <img src="./images/employee/3.jpg" alt="Nataliya Boyko" />
+                  <div class="team-text">
+                    <h3>Петрова Альона</h3>
+                    <p>Партнер</p>
+                  </div>
+                </div>
+                <div class="team-member-card">
+                  <img src="./images/employee/1.jpg" alt="Alona Petrova" />
+                  <div class="team-text">
+                    <h3>Петрова Альона</h3>
+                    <p>Партнер</p>
+                  </div>
+                </div>
+                <div class="team-member-card">
+                  <img src="./images/employee/2.jpg" alt="Maksym Voronok" />
+                  <div class="team-text">
+                    <h3>Петрова Альона</h3>
+                    <p>Партнер</p>
+                  </div>
+                </div>
+                <div class="team-member-card">
+                  <img
+                    src="./images/employee/emp_stock_4.jpg"
+                    alt="Alona Petrova"
+                  />
+                  <div class="team-text">
+                    <h3>Петрова Альона</h3>
+                    <p>Партнер</p>
+                  </div>
+                </div>
+                <div class="team-member-card">
+                  <img
+                    src="./images/employee/emp_stock_5.jpg"
+                    alt="Alona Petrova"
+                  />
+                  <div class="team-text">
+                    <h3>Петрова Альона</h3>
+                    <p>Партнер</p>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- <div class="team-nav-container">
+                <div class="navigation">
+                  <ion-icon
+                    name="arrow-back-circle-outline"
+                    class="back-arrow"
+                  ></ion-icon>
+                  <ion-icon
+                    name="arrow-forward-circle-outline"
+                    class="next-arrow"
+                  ></ion-icon>
+                </div>
+              </div> -->
+              <div class="dots-navigation"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faq-container">
+          <div class="content-wrapper">
+            <h3 class="services-heading">Наші послуги</h3>
+            <h2 class="services-sub-heading">Поширині запитання</h2>
+            <ul>
+              <li>
+                <div class="question">
+                  <span
+                    >Як укласти договір з АО “Грищенко та партнери Одеса?</span
+                  >
+                  <span class="icon"
+                    ><ion-icon name="chevron-down-sharp"></ion-icon
+                  ></span>
+                </div>
+                <div class="answer">
+                  <span
+                    >Це означає, що все, чим обидва подружжя володіють, може
+                    бути класифіковано і юридично характеризується як «спільно
+                    нажите майно подружжя» або «особисте майно». Законодавство
+                    України передбачає, що кожен із подружжя має право на
+                    отримання половини із загальної власності.  Спільним є все
+                    майно, розташоване в межах або за межами України, яке Ви або
+                    Ваш чоловік придбали під час шлюбу, за винятком придбаного в
+                    дар, отриманого в спадщину або приватизованого майна і т.п. 
+                    Кожен із подружжя має право і на половину всього майна, яке
+                    буде розділене між сторонами в ході розгляду про розподіл
+                    майна, а також беруться до уваги борги і зобов'язання, щоб
+                    створити рівні умови поділу спільного майна. Будь-який
+                    шлюбний договір повинен бути ретельно вивчений, так як він
+                    може анулювати або зменшити майнові інтереси.</span
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="question">
+                  <span>Що таке спільне майно?</span>
+                  <span class="icon"
+                    ><ion-icon name="chevron-down-sharp"></ion-icon
+                  ></span>
+                </div>
+                <div class="answer">
+                  <span
+                    >Це означає, що все, чим обидва подружжя володіють, може
+                    бути класифіковано і юридично характеризується як «спільно
+                    нажите майно подружжя» або «особисте майно». Законодавство
+                    України передбачає, що кожен із подружжя має право на
+                    отримання половини із загальної власності.  Спільним є все
+                    майно, розташоване в межах або за межами України, яке Ви або
+                    Ваш чоловік придбали під час шлюбу, за винятком придбаного в
+                    дар, отриманого в спадщину або приватизованого майна і т.п. 
+                    Кожен із подружжя має право і на половину всього майна, яке
+                    буде розділене між сторонами в ході розгляду про розподіл
+                    майна, а також беруться до уваги борги і зобов'язання, щоб
+                    створити рівні умови поділу спільного майна. Будь-який
+                    шлюбний договір повинен бути ретельно вивчений, так як він
+                    може анулювати або зменшити майнові інтереси.</span
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="question">
+                  <span>Як визначається сума аліментів?</span>
+                  <span class="icon"
+                    ><ion-icon name="chevron-down-sharp"></ion-icon
+                  ></span>
+                </div>
+                <div class="answer">
+                  <span
+                    >Це означає, що все, чим обидва подружжя володіють, може
+                    бути класифіковано і юридично характеризується як «спільно
+                    нажите майно подружжя» або «особисте майно». Законодавство
+                    України передбачає, що кожен із подружжя має право на
+                    отримання половини із загальної власності.  Спільним є все
+                    майно, розташоване в межах або за межами України, яке Ви або
+                    Ваш чоловік придбали під час шлюбу, за винятком придбаного в
+                    дар, отриманого в спадщину або приватизованого майна і т.п. 
+                    Кожен із подружжя має право і на половину всього майна, яке
+                    буде розділене між сторонами в ході розгляду про розподіл
+                    майна, а також беруться до уваги борги і зобов'язання, щоб
+                    створити рівні умови поділу спільного майна. Будь-який
+                    шлюбний договір повинен бути ретельно вивчений, так як він
+                    може анулювати або зменшити майнові інтереси.</span
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="question">
+                  <span>Як визначається опіка та догляд за дітьми?</span>
+                  <span class="icon"
+                    ><ion-icon name="chevron-down-sharp"></ion-icon
+                  ></span>
+                </div>
+                <div class="answer">
+                  <span
+                    >Це означає, що все, чим обидва подружжя володіють, може
+                    бути класифіковано і юридично характеризується як «спільно
+                    нажите майно подружжя» або «особисте майно». Законодавство
+                    України передбачає, що кожен із подружжя має право на
+                    отримання половини із загальної власності.  Спільним є все
+                    майно, розташоване в межах або за межами України, яке Ви або
+                    Ваш чоловік придбали під час шлюбу, за винятком придбаного в
+                    дар, отриманого в спадщину або приватизованого майна і т.п. 
+                    Кожен із подружжя має право і на половину всього майна, яке
+                    буде розділене між сторонами в ході розгляду про розподіл
+                    майна, а також беруться до уваги борги і зобов'язання, щоб
+                    створити рівні умови поділу спільного майна. Будь-який
+                    шлюбний договір повинен бути ретельно вивчений, так як він
+                    може анулювати або зменшити майнові інтереси.</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="blog-section">
+          <div class="content-wrapper">
+            <h3 class="services-heading">Наші послуги</h3>
+            <h2 class="services-sub-heading">Блог</h2>
+            <div class="blog-nav-container">
+              <div class="blog-container">
+                <div class="blog-card">
+                  <img
+                    src="./images/justice_background_en.jpg"
+                    alt="Bookshelf"
+                    class="blog-image"
+                  />
+                  <div class="blog-text">
+                    <h2>Різниця між ФОП та юридичною особою</h2>
+                    <p>
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo minus id quod maxime.
+                    </p>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <img
+                    src="./images/justice_background_en.jpg"
+                    alt="Justice Statue"
+                    class="blog-image"
+                  />
+                  <div class="blog-text">
+                    <h2>Розлучення & Що Вам потрібно знати</h2>
+                    <p>
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo minus id quod maxime.
+                    </p>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <img
+                    src="./images/justice_background_en.jpg"
+                    alt="Office"
+                    class="blog-image"
+                  />
+                  <div class="blog-text">
+                    <h2>Discussion Topics in Business</h2>
+                    <p>
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo minus id quod maxime.
+                    </p>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <img
+                    src="./images/justice_background_en.jpg"
+                    alt="Office"
+                    class="blog-image"
+                  />
+                  <div class="blog-text">
+                    <h2>Discussion Topics in Business</h2>
+                    <p>
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo minus id quod maxime.
+                    </p>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <img
+                    src="./images/justice_background_en.jpg"
+                    alt="Office"
+                    class="blog-image"
+                  />
+                  <div class="blog-text">
+                    <h2>Discussion Topics in Business</h2>
+                    <p>
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo minus id quod maxime.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="navigation">
+                <ion-icon
+                  name="arrow-back-circle-outline"
+                  class="back-arrow"
+                ></ion-icon>
+                <ion-icon
+                  name="arrow-forward-circle-outline"
+                  class="next-arrow"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-contact-us">
+          <div class="content-wrapper">
+            <div class="contact-text">
+              <h3 class="services-heading">Наші послуги</h3>
+              <h2 class="services-sub-heading">Отримати консультацію</h2>
+            </div>
+            <div class="contact-container">
+              <p class="section-contact-subheading">
+                У робочий час ми відповідаємо протягом 3 годин після вашого
+                звернення
+              </p>
+
+              <!-- Right Side (Form) -->
+              <div class="contact-form">
+                <form class="section-contact-form">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ім’я"
+                    required
+                  />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Номер телефону"
+                    required
+                  />
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="Опис ситуації"
+                  ></textarea>
+                  <button type="submit" class="contact-button">
+                    Надіслати
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="footer-content">
+            <div class="footer-section logo-section">
+              <img
+                src="./images/logos/logo_en.png"
+                alt="Грищенко та Партнери"
+              />
+              <p>Адвокатське об’єднання Грищенко та Партнери Одеса.</p>
+              <h4>Соціальні мережі</h4>
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  aria-label="Facebook"
+                >
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  aria-label="Instagram"
+                >
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h4>Контакти</h4>
+              <p>65039, Україна, м. Одеса, Фонтанська дорога 4А</p>
+              <p>+38 (048) 777 20 60</p>
+              <p>65039, Україна, м. Київ, вул. Шевченка 14Б</p>
+              <p>+38 (044) 123 45 67</p>
+            </div>
+            <div class="footer-section">
+              <h4>Послуги</h4>
+              <ul>
+                <li>Консультації для бізнесу</li>
+                <li>Корпоративне право</li>
+                <li>Податкове консультування</li>
+                <li>Юридичне супроводження</li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Підписатись на новини</h4>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Ваш email" required />
+                <button type="submit">Підписатись</button>
+              </form>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2024 Грищенко та Партнери. Всі права захищені.</p>
+          </div>
+          <div class="dev-section">
+            <p>
+              Створено
+              <a href="https://blumotech.com" target="_blank">Blumotech</a> для
+              Грищенко та Партнери, 2025
+            </p>
+          </div>
+        </footer>
+
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+        <script type="text/javascript" src="script.js"></script>
+      </div>
+    </main>
+  </body>
+</html>
