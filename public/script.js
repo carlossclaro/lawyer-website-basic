@@ -1,167 +1,138 @@
-// const carouselContainer = document.querySelector('.carousel-container');
-// const prevButton = document.querySelector('.carousel-prev');
-// const nextButton = document.querySelector('.carousel-next');
-
-// let currentIndex = 0;
-
-// function updateCarousel() {
-//   const itemWidth = document.querySelector('.carousel-item').clientWidth;
-//   carouselContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-// }
-
-// prevButton.addEventListener('click', () => {
-//   currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
-//   updateCarousel();
-// });
-
-// nextButton.addEventListener('click', () => {
-//   const totalItems = document.querySelectorAll('.carousel-item').length;
-//   currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : totalItems - 1;
-//   updateCarousel();
-// });
-
-
-/* Content for FAQ section */
-const questions = document.querySelectorAll('.question');
-
-questions.forEach(function(question) {
-  question.addEventListener('click', function(){
-    question.classList.toggle('open');
-    console.log("this works")
-  })
-})
-
-// // Hamburger menu toggle
-// const hamburger = document.querySelector('.hamburger-menu');
-// const navList = document.querySelector('.nav-list');
-// const sliderMenu = document.querySelector('.slider-menu');
-
-// function toggleMenu() {
-//   navList.classList.toggle('active');
-//   hamburger.classList.toggle('active');
-//   console.log("this works")
-
-//   // const isOpen = sliderMenu.style.right === '0px';
-//   // sliderMenu.style.right = isOpen ? '-250px' : '0';
-// }
-
-
-// const teamWrapper = document.querySelector(".team-wrapper");
-// const prevBtn = document.querySelector(".prev");
-// const nextBtn = document.querySelector(".next");
-
-// // Adjust scroll size dynamically based on card width
-// const scrollAmount = 320;
-
-// prevBtn.addEventListener("click", () => {
-//   teamWrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-// });
-
-// nextBtn.addEventListener("click", () => {
-//   teamWrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
-// });
-
-// // Auto-scroll every 3 seconds (optional)
-// let autoScroll = setInterval(() => {
-//   teamWrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
-// }, 3000);
-
-// // Pause auto-scroll on hover
-// teamWrapper.addEventListener("mouseenter", () => clearInterval(autoScroll));
-// teamWrapper.addEventListener("mouseleave", () => {
-//   autoScroll = setInterval(() => {
-//     teamWrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//   }, 3000);
-// });
-
-// // Disable arrows when at the start or end
-// const checkOverflow = () => {
-//   prevBtn.disabled = teamWrapper.scrollLeft <= 0;
-//   nextBtn.disabled =
-//     teamWrapper.scrollLeft + teamWrapper.clientWidth >= teamWrapper.scrollWidth;
-// };
-
-// teamWrapper.addEventListener("scroll", checkOverflow);
-// window.addEventListener("resize", checkOverflow);
-// checkOverflow();
-
-
-
-
-
-  // Set the width of the team-wrapper to accommodate all the cards
-  // const backButton = document.querySelector('.back-arrow');
-  // const nextButton = document.querySelector('.next-arrow');
-  // const teamWrapper = document.querySelector('.team-wrapper');
-  // const teamCards = document.querySelectorAll('.team-member-card');
-  // const totalCards = teamCards.length;
-  // let currentIndex = 0;
-
-  // // Set the width of the team-wrapper to accommodate all the cards
-  // const cardWidth = teamCards[0].offsetWidth + 20; // 20px for margin (optional)
-  // teamWrapper.style.width = `${cardWidth * totalCards}px`;
-
-  // function updateCarousel() {
-  //   // Prevent moving past the first or last card
-  //   if (currentIndex >= totalCards) {
-  //     currentIndex = totalCards - 1; // Stop at the last card
-  //   } else if (currentIndex < 0) {
-  //     currentIndex = 0; // Stop at the first card
-  //   }
-  //   // Calculate the new position based on currentIndex
-  //   teamWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-  // }
-
-  // backButton.addEventListener('click', () => {
-  //   // Go to the previous card
-  //   if (currentIndex > 0) {
-  //     currentIndex--;
-  //   }
-  //   updateCarousel();
-  // });
-
-  // nextButton.addEventListener('click', () => {
-  //   // Go to the next card but stop at the last one
-  //   if (currentIndex < totalCards - 1) {
-  //     currentIndex++;
-  //   }
-  //   updateCarousel();
-  // });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const teamWrapper = document.querySelector(".team-wrapper");
-    const dotsContainer = document.querySelector(".dots-navigation");
-    const teamMembers = document.querySelectorAll(".team-member-card");
-    const totalItems = teamMembers.length;
-    const visibleItems = 3; // Adjust based on how many are visible at once
-    const totalPages = Math.ceil(totalItems / visibleItems);
+document.addEventListener('DOMContentLoaded', () => {
   
+
+    const slideUpElements = document.querySelectorAll('.slide-up');
+   
+    const checkSlide = () => {
+      slideUpElements.forEach((element) => {
+        // Get the position of the element relative to the viewport
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+  
+        // Check if the element is in the viewport
+        const isElementVisible = elementTop < window.innerHeight && elementBottom >= 0;
+  
+        if (isElementVisible) {
+          element.classList.add('active');
+        } else {
+          element.classList.remove('active'); // Optional: Remove the class if you want the animation to reset  
+        }
+      });
+    };
+  
+    // Run the check on page load
+    checkSlide();
+  
+    // Run the check on scroll
+    window.addEventListener('scroll', checkSlide);
+    function throttle(func, limit) {
+      let inThrottle;
+      return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+    
+    window.addEventListener('scroll', throttle(checkSlide, 100)); // Throttle to 100ms
+
+  // Function to set up navigation for carousels
+  function setupNavigation(wrapper, dotsContainer, totalItems, visibleItems) {
+    if (!wrapper || !dotsContainer || totalItems === 0) return;
+
+    const totalPages = Math.ceil(totalItems / visibleItems);
+
     // Create dots
     for (let i = 0; i < totalPages; i++) {
       const dot = document.createElement("div");
       dot.classList.add("dot");
       if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => scrollToPage(i));
+      dot.addEventListener("click", () => {
+        scrollToPage(wrapper, dotsContainer, totalPages, i);
+      });
       dotsContainer.appendChild(dot);
     }
-  
-    function scrollToPage(page) {
-      const scrollAmount = teamWrapper.scrollWidth / totalPages;
-      teamWrapper.scrollTo({ left: scrollAmount * page, behavior: "smooth" });
-  
-      // Update active dot
-      document.querySelectorAll(".dot").forEach((d, index) => {
-        d.classList.toggle("active", index === page);
-      });
-    }
-  
-    // Sync dots with scrolling
-    teamWrapper.addEventListener("scroll", () => {
-      const scrollLeft = teamWrapper.scrollLeft;
-      const currentPage = Math.round(scrollLeft / (teamWrapper.scrollWidth / totalPages));
-      
-      document.querySelectorAll(".dot").forEach((d, index) => {
-        d.classList.toggle("active", index === currentPage);
-      });
+
+    // Sync active dots with scroll
+    wrapper.addEventListener("scroll", () => {
+      updateActiveDot(wrapper, dotsContainer, totalPages);
+    });
+  }
+
+  // Function to scroll to a specific page
+  function scrollToPage(wrapper, dotsContainer, totalPages, page) {
+    const scrollAmount = wrapper.scrollWidth / totalPages;
+    wrapper.scrollTo({ left: scrollAmount * page, behavior: "smooth" });
+
+    // Immediately update active dot after clicking
+    setTimeout(() => {
+      updateActiveDot(wrapper, dotsContainer, totalPages);
+    }, 100);
+  }
+
+  // Function to update the active dot
+  function updateActiveDot(wrapper, dotsContainer, totalPages) {
+    const scrollLeft = wrapper.scrollLeft;
+    const currentPage = Math.round(scrollLeft / (wrapper.scrollWidth / totalPages));
+
+    // Update only the dots for the current section
+    const dots = dotsContainer.querySelectorAll(".dot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentPage);
+    });
+  }
+
+  // Team Navigation
+  setupNavigation(
+    document.querySelector(".team-wrapper"),
+    document.querySelector(".team-dots"),
+    document.querySelectorAll(".team-member-card").length,
+    3
+  );
+
+  // Blog Navigation
+  setupNavigation(
+    document.querySelector(".blog-container"),
+    document.querySelector(".blog-dots"),
+    document.querySelectorAll(".blog-card").length,
+    3
+  );
+
+  // FAQ Section: Toggle open/close for questions
+  const questions = document.querySelectorAll('.question');
+  questions.forEach((question) => {
+    question.addEventListener('click', function () {
+      question.classList.toggle('open');
     });
   });
+
+  // Smooth scroll to sections on arrow key press
+  document.addEventListener('keydown', (event) => {
+    const sections = document.querySelectorAll('section');
+    const currentSection = document.querySelector('section.active');
+    let currentIndex = Array.from(sections).indexOf(currentSection);
+
+    if (event.key === 'ArrowDown' && currentIndex < sections.length - 1) {
+      sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+    } else if (event.key === 'ArrowUp' && currentIndex > 0) {
+      sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // Highlight the active section on scroll
+  document.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  });
+});
