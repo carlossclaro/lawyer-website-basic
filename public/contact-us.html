@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css"
+    />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="inner-content">
+        <nav class="nav-bar-container-fixed">
+          <div class="left-nav">
+            <a href="/"
+              ><img
+                src="./images/logos/logo_ua.png"
+                class="logo logo-light"
+                alt="Light Logo"
+                alt="logo"
+            /></a>
+             <a href="/"
+              ><img
+                src="./images/logos/logo_ua_dark.png"
+                class="logo logo-dark"
+                alt="Dark Logo"
+                alt="logo"
+            /></a>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+
+          <div class="slider-menu">
+            <div class="nav-center">
+              <ul class="nav-list">
+                <li><a href="#main-section">Головна</a></li>
+                <li><a href="#work-total-container">Про нас</a></li>
+                <li><a href="#more-services-container">Послуги</a></li>
+                <li><a href="#team-section">Команда</a></li>
+                <li><a href="#faq-container">Новини</a></li>
+                <li><a href="#section-contact-us">Контакти</a></li>
+              </ul>
+            </div>
+            <div class="nav-right">
+              <a href="#section-contact-us" class="nav-button"
+                >Отримати консультацію</a
+              >
+              <!-- <button class="language-btn" id="ua-btn">
+                UA
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1200px-Flag_of_Ukraine.svg.png"
+                  alt="Ukraine Flag"
+                  class="flag-icon"
+                />
+              </button> -->
+            </div>
+          </div>
+        </nav>
+        <!--==========================
+    Contact Us
+  ============================-->
+        <section id="section-contact-us">
+          <div class="content-wrapper">
+            <div class="contact-text">
+              <div class="line"></div>
+              <h3 class="services-heading slide-up">Отримати консультацію</h3>
+            </div>
+
+            <div class="contact-container">
+              <!-- Contact Information on the Left -->
+              <div class="contact-info">
+                <p class="section-contact-subheading">
+                  У робочий час ми відповідаємо протягом 3 годин після вашого
+                  звернення
+                </p>
+
+                <div class="contact-block">
+                  <ion-icon name="call-outline"></ion-icon>
+                  <div>
+                    <h4>Телефонуйте нам</h4>
+                    <p>+38 (048) 777 20 60</p>
+                  </div>
+                </div>
+
+                <div class="contact-block">
+                  <ion-icon name="mail-outline"></ion-icon>
+                  <div>
+                    <h4>Напишіть нам</h4>
+                    <p>adm@gp.ua</p>
+                  </div>
+                </div>
+
+                <div class="contact-block">
+                  <ion-icon name="location-outline"></ion-icon>
+                  <div>
+                    <h4>Розташування</h4>
+                    <p>
+                      65012, Україна, м. Одеса, Італьянський бульвар 1Г,<br />
+                      бізнес-центр "KADORR"
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contact-block">
+                  <ion-icon name="time-outline"></ion-icon>
+                  <div>
+                    <h4>Робочі години</h4>
+                    <p>Пн-Пт: 9:00 - 18:00</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-form">
+                <form class="section-contact-form">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ім’я"
+                    required
+                  />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Номер телефону"
+                    required
+                  />
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="Ваш запит"
+                  ></textarea>
+                  <button type="submit" class="contact-button">
+                    Надіслати
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="map"></div>
+
+        <!--==========================
+    Footer
+  ============================-->
+
+        <footer id="footer">
+          <div class="content-wrapper"></div>
+          <div class="footer-top">
+            <div class="footer-container">
+              <!-- Logo -->
+              <div class="footer-box logo-box">
+                <img
+                  src="./images/logos/logo_ua_footer.png"
+                  alt="Logo"
+                  class="footer-logo"
+                />
+                <div class="social-links bottom-icons">
+                  <a href="https://twitter.comh"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                  ></a>
+                  <a href="https://www.facebook.com"
+                    ><ion-icon name="logo-facebook"></ion-icon
+                  ></a>
+                  <a href="https://www.instagram.com"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                  ></a>
+                </div>
+              </div>
+
+              <!-- Useful Links -->
+              <div class="footer-box">
+                <h4>Корисні посилання</h4>
+                <ul>
+                  <li><span>›</span> <a href="#main-section">Головна</a></li>
+                  <li>
+                    <span>›</span> <a href="#work-total-container">Про нас</a>
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a href="#more-services-container">Послуги</a>
+                  </li>
+                  <li><span>›</span> <a href="#team-section">Команда</a></li>
+                  <li><span>›</span> <a href="#faq-container">Новини</a></li>
+                  <li>
+                    <span>›</span> <a href="#section-contact-us">Контакти</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 
+Наші послуги -->
+              <div class="footer-box">
+                <h4>Наші послуги</h4>
+                <ul>
+                  <li onClick="goToInfo('criminal')">
+                    <span>›</span>
+                    <a href="#" onclick="event.preventDefault()"
+                      >Кримінальні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('civil')"
+                      >Цивільні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('family')"
+                      >Сімейні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('commercial')"
+                      >Господарські справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('labor')"
+                      >Трудові справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('credit')"
+                      >Кредитні спори</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('admin')"
+                      >Адміністративні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="#"
+                      onclick="event.preventDefault(); goToInfo('business')"
+                      >Захист бізнесу</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Contact Us -->
+              <div class="footer-box footer-contact">
+                <h4>Зв'яжіться з нами</h4>
+                <p>
+                  <ion-icon name="location-outline"></ion-icon
+                  ><strong>Адреса:</strong> 65012, Україна, м. Одеса,
+                  Італьянський бульвар 1Г, бізнес-центр "KADORR"
+                </p>
+                <p>
+                  <ion-icon name="mail-outline"></ion-icon
+                  ><strong>Електронна пошта:</strong> adm@gp.ua
+                </p>
+                <p>
+                  <ion-icon name="call-outline"></ion-icon
+                  ><strong>Телефон:</strong> +38 (048) 777 20 60
+                </p>
+                <p>
+                  <ion-icon name="time-outline"></ion-icon
+                  ><strong>Робочі години:</strong> Пн-Пт: 9:00 - 18:00
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom Section -->
+          <div class="footer-bottom">
+            <p>&copy; 2025 Грищенко та Партнери. Всі права захищені.</p>
+
+            <p>
+              Створено
+              <a href="https://blumotech.com" target="_blank">Blumotech</a> для
+              Грищенко та Партнери, 2025
+            </p>
+          </div>
+        </footer>
+
+        </div>
+        </main>
+     <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css"
+        />
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="./script.js"></script>
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        </body>
+        </html>
+        

@@ -1,138 +1,206 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
+// Toggle hamburger menu
+function toggleMenu() {
+  const sliderMenu = document.querySelector('.slider-menu');
+  sliderMenu.classList.toggle('active'); // Toggle the sliding menu visibility
+}
 
-    const slideUpElements = document.querySelectorAll('.slide-up');
-   
-    const checkSlide = () => {
-      slideUpElements.forEach((element) => {
-        // Get the position of the element relative to the viewport
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-  
-        // Check if the element is in the viewport
-        const isElementVisible = elementTop < window.innerHeight && elementBottom >= 0;
-  
-        if (isElementVisible) {
-          element.classList.add('active');
-        } else {
-          element.classList.remove('active'); // Optional: Remove the class if you want the animation to reset  
-        }
-      });
-    };
-  
-    // Run the check on page load
-    checkSlide();
-  
-    // Run the check on scroll
-    window.addEventListener('scroll', checkSlide);
-    function throttle(func, limit) {
-      let inThrottle;
-      return function () {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-          func.apply(context, args);
-          inThrottle = true;
-          setTimeout(() => (inThrottle = false), limit);
-        }
-      };
-    }
-    
-    window.addEventListener('scroll', throttle(checkSlide, 100)); // Throttle to 100ms
 
-  // Function to set up navigation for carousels
-  function setupNavigation(wrapper, dotsContainer, totalItems, visibleItems) {
-    if (!wrapper || !dotsContainer || totalItems === 0) return;
+// Close mobile menu on link click
+document.querySelectorAll(".nav-list a").forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth < 992) toggleMenu();
+  });
+});
 
-    const totalPages = Math.ceil(totalItems / visibleItems);
+// More Information Tabs
+const buttons = document.querySelectorAll(".mi-button");
+const sections = document.querySelectorAll(".mi-section");
+const dropdown = document.getElementById("mi-dropdown"); // <- new
 
-    // Create dots
-    for (let i = 0; i < totalPages; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        scrollToPage(wrapper, dotsContainer, totalPages, i);
-      });
-      dotsContainer.appendChild(dot);
-    }
+function showSection(type) {
+  sections.forEach(section => {
+    section.style.display = section.id === type ? "block" : "none";
+  });
+  buttons.forEach(btn => {
+    const target = btn.getAttribute("data-target");
+    btn.classList.toggle("active", target === type);
+  });
 
-    // Sync active dots with scroll
-    wrapper.addEventListener("scroll", () => {
-      updateActiveDot(wrapper, dotsContainer, totalPages);
+  // Sync the dropdown value when clicking a button (desktop)
+  if (dropdown) {
+    dropdown.value = type;
+  }
+}
+
+// Handle button clicks (desktop)
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const type = button.getAttribute("data-target");
+    showSection(type);
+  });
+});
+
+// Handle dropdown changes (mobile)
+if (dropdown) {
+  dropdown.addEventListener("change", () => {
+    const type = dropdown.value;
+    showSection(type);
+  });
+}
+
+
+// Show the default section based on URL parameter or default to "family"
+window.addEventListener("DOMContentLoaded", () => {
+  const type = new URLSearchParams(window.location.search).get("type") || "family";
+  showSection(type);
+
+  // Navbar behavior on scroll
+  const navbar = document.querySelector(".nav-bar-container");
+  const mainContainer = document.querySelector(".main-container");
+  if (navbar && mainContainer) {
+    mainContainer.addEventListener("scroll", () => {
+      navbar.classList.toggle("solid", mainContainer.scrollTop > 50);
     });
   }
+});
 
-  // Function to scroll to a specific page
-  function scrollToPage(wrapper, dotsContainer, totalPages, page) {
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const target = button.getAttribute("data-target");
+    showSection(target);
+    history.pushState(null, "", `?type=${target}`);
+  });
+});
+
+// Slider navigation with dots
+function setupNavigation(wrapper, dotsContainer, totalItems, visibleItems) {
+  if (!wrapper || !dotsContainer || totalItems === 0) return;
+  const totalPages = Math.ceil(totalItems / visibleItems);
+
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      const scrollAmount = wrapper.scrollWidth / totalPages;
+      wrapper.scrollTo({ left: scrollAmount * i, behavior: "smooth" });
+      updateActiveDot(dotsContainer, i);
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  wrapper.addEventListener("scroll", () => {
+    const page = Math.round(wrapper.scrollLeft / (wrapper.scrollWidth / totalPages));
+    updateActiveDot(dotsContainer, page);
+  });
+}
+
+function updateActiveDot(container, index) {
+  container.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+}
+
+// Arrow navigation
+function setupArrowNavigation(wrapper, leftArrow, rightArrow, visibleItems) {
+  if (!wrapper || !leftArrow || !rightArrow) return;
+  const totalItems = wrapper.querySelectorAll(".team-member-card").length;
+  const totalPages = Math.ceil(totalItems / visibleItems);
+  let currentPage = 0;
+
+  function scrollToPage(page) {
     const scrollAmount = wrapper.scrollWidth / totalPages;
     wrapper.scrollTo({ left: scrollAmount * page, behavior: "smooth" });
-
-    // Immediately update active dot after clicking
-    setTimeout(() => {
-      updateActiveDot(wrapper, dotsContainer, totalPages);
-    }, 100);
   }
 
-  // Function to update the active dot
-  function updateActiveDot(wrapper, dotsContainer, totalPages) {
-    const scrollLeft = wrapper.scrollLeft;
-    const currentPage = Math.round(scrollLeft / (wrapper.scrollWidth / totalPages));
+  leftArrow.addEventListener("click", () => {
+    if (currentPage > 0) scrollToPage(--currentPage);
+  });
+  rightArrow.addEventListener("click", () => {
+    if (currentPage < totalPages - 1) scrollToPage(++currentPage);
+  });
+}
 
-    // Update only the dots for the current section
-    const dots = dotsContainer.querySelectorAll(".dot");
-    dots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentPage);
-    });
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  setupArrowNavigation(
+    document.querySelector(".team-wrapper"),
+    document.querySelector(".team-nav-arrows ion-icon[name='chevron-back-outline']"),
+    document.querySelector(".team-nav-arrows ion-icon[name='chevron-forward-outline']"),
+    4
+  );
 
-  // Team Navigation
   setupNavigation(
     document.querySelector(".team-wrapper"),
     document.querySelector(".team-dots"),
     document.querySelectorAll(".team-member-card").length,
-    3
+    4
   );
 
-  // Blog Navigation
   setupNavigation(
     document.querySelector(".blog-container"),
     document.querySelector(".blog-dots"),
     document.querySelectorAll(".blog-card").length,
     3
   );
-
-  // FAQ Section: Toggle open/close for questions
-  const questions = document.querySelectorAll('.question');
-  questions.forEach((question) => {
-    question.addEventListener('click', function () {
-      question.classList.toggle('open');
-    });
-  });
-
-  // Smooth scroll to sections on arrow key press
-  document.addEventListener('keydown', (event) => {
-    const sections = document.querySelectorAll('section');
-    const currentSection = document.querySelector('section.active');
-    let currentIndex = Array.from(sections).indexOf(currentSection);
-
-    if (event.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-      sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-    } else if (event.key === 'ArrowUp' && currentIndex > 0) {
-      sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  // Highlight the active section on scroll
-  document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-        section.classList.add('active');
-      } else {
-        section.classList.remove('active');
-      }
-    });
-  });
 });
+
+// FAQ toggle
+document.querySelectorAll(".question").forEach(q => {
+  q.addEventListener("click", () => q.classList.toggle("open"));
+});
+
+
+  // let currentLang = 'uk'; // Default
+
+  // function changeLang(lang) {
+  //   const select = document.querySelector('select.goog-te-combo');
+  //   if (select) {
+  //     select.value = lang;
+  //     select.dispatchEvent(new Event('change'));
+  //   }
+  // }
+
+  // document.getElementById('lang-toggle').addEventListener('click', () => {
+  //   if (currentLang === 'uk') {
+  //     currentLang = 'en';
+  //     changeLang('en');
+  //     document.getElementById('lang-toggle').innerHTML = `
+  //       UA
+  //       <img
+  //         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1200px-Flag_of_Ukraine.svg.png"
+  //         alt="Ukraine Flag"
+  //         class="flag-icon"
+  //       />
+  //     `;
+  //   } else {
+  //     currentLang = 'uk';
+  //     changeLang('uk');
+  //     document.getElementById('lang-toggle').innerHTML = `
+  //       EN
+  //       <img
+  //         src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+  //         alt="English Flag"
+  //         class="flag-icon"
+  //       />
+  //     `;
+  //   }
+  // });
+
+
+
+// Map
+const map = L.map("map").setView([46.467533991007826, 30.75029661639775], 13);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: "abcd",
+  maxZoom: 19,
+}).addTo(map);
+L.marker([46.467533991007826, 30.75029661639775])
+  .addTo(map)
+  .bindPopup("Грищенко та Партнери")
+  .openPopup();
+
+// Navigation button redirection
+function goToInfo(type) {
+  window.location.href = `info.html?type=${type}`;
+}
