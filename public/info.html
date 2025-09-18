@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css?v=1.3" />
+    <link rel="stylesheet" href="./css/new-modal-styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css"
+    />
+  </head>
+  <body class="info-page">
+    <main class="main-container">
+      <div class="inner-content">
+        <!-- Navigation -->
+        <nav class="nav-bar-container" role="navigation" aria-label="Основна навігація">
+          <div class="left-nav">
+            <a href="/" class="logo-link" aria-label="Грищенко та партнери - головна сторінка">
+              <img
+                src="./images/logos/logo_ua.png"
+                class="logo logo-light"
+                alt="Логотип світлий"
+              />
+              <img
+                src="./images/logos/logo_ua_dark.png"
+                class="logo logo-dark"
+                alt="Логотип темний"
+              />
+            </a>
+          </div>
+
+          <div class="nav-center">
+            <ul class="nav-list" role="menubar">
+              <li role="none"><a href="index.html#main-section" role="menuitem" aria-label="Перейти до головної секції">Головна</a></li>
+              <li role="none"><a href="index.html#work-total-container" role="menuitem" aria-label="Перейти до секції про нас">Про нас</a></li>
+              <li role="none" class="dropdown">
+                <a href="index.html#more-services-container" role="menuitem" aria-label="Перейти до секції послуг" aria-haspopup="true" aria-expanded="false">
+                  Послуги
+                  <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="none"><a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a></li>
+                  <li role="none"><a href="info.html?type=civil" role="menuitem">Цивільні справи</a></li>
+                  <li role="none"><a href="info.html?type=family" role="menuitem">Сімейні справи</a></li>
+                  <li role="none"><a href="info.html?type=commerical" role="menuitem">Господарські справи</a></li>
+                  <li role="none"><a href="info.html?type=labor" role="menuitem">Трудові справи</a></li>
+                  <li role="none"><a href="info.html?type=credit" role="menuitem">Кредитні спори</a></li>
+                  <li role="none"><a href="info.html?type=admin" role="menuitem">Адміністративні справи</a></li>
+                  <li role="none"><a href="info.html?type=business" role="menuitem">Захист бізнесу</a></li>
+                </ul>
+              </li>
+              <li role="none" class="dropdown">
+                <a href="index.html#team-section" role="menuitem" aria-label="Перейти до секції команди" aria-haspopup="true" aria-expanded="false">
+                  Команда
+                  <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="none"><a href="company.html" role="menuitem">Про компанію</a></li>
+                  <li role="none"><a href="index.html#team-section" role="menuitem">Наша команда</a></li>
+                  <li role="none"><a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a></li>
+                  <li role="none"><a href="index.html#team-section" role="menuitem">Петрова Альона - Партнер</a></li>
+                  <li role="none"><a href="index.html#team-section" role="menuitem">Бойко Анастасія - Партнер</a></li>
+                  <li role="none"><a href="index.html#team-section" role="menuitem">Коротнян Павло - Партнер</a></li>
+                </ul>
+              </li>
+              <li role="none" class="dropdown">
+                <a href="index.html#blog-section" role="menuitem" aria-label="Перейти до секції новин" aria-haspopup="true" aria-expanded="false">
+                  Новини
+                  <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="none"><a href="blog_one.html" role="menuitem">Що робити при перевірці бізнесу</a></li>
+                  <li role="none"><a href="blog_two.html" role="menuitem">Шлюбний договір: чому це важливо</a></li>
+                  <li role="none"><a href="blog_three.html" role="menuitem">Типові помилки при укладанні договорів</a></li>
+                </ul>
+              </li>
+              <li role="none"><a href="index.html#section-contact-us" role="menuitem" aria-label="Перейти до секції контактів">Контакти</a></li>
+            </ul>
+          </div>
+            
+          <div class="nav-right">
+            <button class="nav-button" onclick="openConsultationModal()" aria-label="Отримати консультацію - відкрити форму">
+              Отримати консультацію
+            </button>
+            
+            <!-- Hamburger icon -->
+            <button class="hamburger-menu text-2xl" onclick="toggleMobileMenu()" aria-label="Відкрити мобільне меню навігації" aria-expanded="false">
+              <span aria-hidden="true">☰</span>
+            </button>
+          </div>
+
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" role="dialog" aria-label="Мобільне меню навігації" aria-hidden="true">
+          <div class="mobile-nav-header">
+            <img src="./images/logos/logo_ua.png" alt="Логотип" class="mobile-nav-logo" />
+            <button class="mobile-close-btn" onclick="toggleMobileMenu()" aria-label="Закрити мобільне меню">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="mobile-nav-menu" role="menu">
+            <a href="index.html#main-section" role="menuitem" aria-label="Перейти до головної секції">Головна</a>
+            <a href="index.html#work-total-container" role="menuitem" aria-label="Перейти до секції про нас">Про нас</a>
+            
+            <div class="mobile-dropdown">
+              <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції послуг" onclick="toggleMobileDropdown(event, 'services')">
+                Послуги
+                <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+              </a>
+              <div class="mobile-dropdown-content" id="services-dropdown">
+                <a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a>
+                <a href="info.html?type=civil" role="menuitem">Цивільні справи</a>
+                <a href="info.html?type=family" role="menuitem">Сімейні справи</a>
+                <a href="info.html?type=commerical" role="menuitem">Господарські справи</a>
+                <a href="info.html?type=labor" role="menuitem">Трудові справи</a>
+                <a href="info.html?type=credit" role="menuitem">Кредитні спори</a>
+                <a href="info.html?type=admin" role="menuitem">Адміністративні справи</a>
+                <a href="info.html?type=business" role="menuitem">Захист бізнесу</a>
+              </div>
+            </div>
+            
+            <div class="mobile-dropdown">
+              <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції команди" onclick="toggleMobileDropdown(event, 'team')">
+                Команда
+                <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+              </a>
+              <div class="mobile-dropdown-content" id="team-dropdown">
+                <a href="company.html" role="menuitem">Про компанію</a>
+                <a href="index.html#team-section" role="menuitem">Наша команда</a>
+                <a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a>
+                <a href="index.html#team-section" role="menuitem">Петрова Альона - Партнер</a>
+                <a href="index.html#team-section" role="menuitem">Бойко Анастасія - Партнер</a>
+                <a href="index.html#team-section" role="menuitem">Коротнян Павло - Партнер</a>
+              </div>
+            </div>
+            
+            <div class="mobile-dropdown">
+              <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції новин" onclick="toggleMobileDropdown(event, 'news')">
+                Новини
+                <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+              </a>
+              <div class="mobile-dropdown-content" id="news-dropdown">
+                <a href="blog_one.html" role="menuitem">Що робити при перевірці бізнесу</a>
+                <a href="blog_two.html" role="menuitem">Шлюбний договір: чому це важливо</a>
+                <a href="blog_three.html" role="menuitem">Типові помилки при укладанні договорів</a>
+              </div>
+            </div>
+            
+            <a href="index.html#section-contact-us" role="menuitem" aria-label="Перейти до секції контактів">Контакти</a>
+            <button class="mobile-nav-button" onclick="openConsultationModal()" aria-label="Отримати консультацію - відкрити форму">Отримати консультацію</button>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="main-section" class="hero-section">
+          <div class="image-with-text">
+            <div class="text-overlay">
+              <h1>
+                Адвокатське об'єднання <br />
+                "Грищенко та партнери Одеса"
+              </h1>
+            </div>
+          </div>
+          
+          <!-- Scroll Down Arrow -->
+          <div class="scroll-down-arrow">
+            <a href="#more-information" aria-label="Прокрутити вниз до наступної секції">
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </a>
+          </div>
+        </section>
+
+        <section id="more-information">
+          <div class="content-wrapper">
+            <div class="wrapper">
+              <div class="mi-left-side">
+                <div class="mi-section active" id="criminal">
+                  <h2>Послуги у сфері кримінального права:</h2>
+                  <p>
+                    Надємо кваліфіковану юридичну допомогу на усіх етапах
+                    кримінального провадження - від першої консультації до
+                    захисту у судах всіх інстанцій, Конституційному суді України
+                    та Європейському суді з прав людини.
+                  </p>
+                  <ul class="mi-list">
+                    <li>
+                      Супровід під час слідчих дій (обшуків, допитів та
+                      затримань) та підготовка до них
+                    </li>
+                    <li>Захист майна та активів, виведення їх з-під арешту</li>
+                    <li>Захист клієнта на стадії досудового розслідування</li>
+                    <li>
+                      Представництво потерпілих та свідків у судах усіх
+                      інстанцій
+                    </li>
+                    <li>
+                      Захист та представництво у економічних, службових та
+                      корупційних злочинах (White-collar crime)
+                    </li>
+                    <li>
+                      Представництво інтересів юридичних осіб у кримінальних
+                      провадженнях
+                    </li>
+                    <li>
+                      Консультація у кримінальних провадженнях та підготовка
+                      клієнта для окремих слідчих дій
+                    </li>
+                    <li>Оскарження судових рішень</li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="civil">
+                  <h2>Послуги у сфері цивільного права:</h2>
+                  <p>
+                    Житлові та спадкові спори, договірні відносини, борги чи
+                    конфлікти щодо нерухомого майна — це ситуації, які
+                    потребують чіткої юридичної підтримки. Ми аналізуємо кожну
+                    справу, враховуємо всі нюанси й супроводжуємо вас від першої
+                    консультації до остаточного рішення суду.
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Договірні спори</strong> — Юридичний супровід при
+                      порушенні умов договорів: купівля-продаж, оренда, підряд,
+                      позика тощо
+                    </li>
+                    <li>
+                      <strong>Спадкові справи</strong> — Допомога у оформленні
+                      спадщини, оскарження заповіту, відновлення строків
+                      прийняття спадщини.
+                    </li>
+                    <li>
+                      <strong>Житлові спори</strong> — Справи про виселення,
+                      прописку, розподіл нерухомості, спори з забудовниками
+                    </li>
+                    <li>
+                      <strong>Відшкодування збитків</strong> — Матеріальна та
+                      моральна шкода, страхові спори, компенсації за шкоду майну
+                      або здоров’ю.
+                    </li>
+                    <li>
+                      <strong>Визнання правочину недійсним</strong> — Визнання
+                      угод недійсними через обман, тиск або порушення закону
+                    </li>
+                    <li>
+                      <strong>Стягнення боргів</strong> — Допомога при
+                      поверненні боргів за розписками, договорами чи рішеннями
+                      суду.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="family">
+                  <h2>Сімейні справи</h2>
+                  <p>
+                    Послуги у сфері сімейного права: Справи, пов’язані з
+                    родиною, завжди непрості — емоційно, юридично та
+                    психологічно. Ми допомагаємо вирішити сімейні спори
+                    цивілізовано, з максимальною повагою до ваших інтересів і
+                    турботою про майбутнє.
+                  </p>
+                  <ul>
+                    <li>
+                      Розірвання шлюбу (розлучення): Підготовка документів,
+                      представництво у суді, супровід навіть за відсутності
+                      згоди другої сторони.
+                    </li>
+                    <li>
+                      Поділ спільного майна подружжя: Визначення часток, оцінка
+                      майна, поділ бізнесу, нерухомості, транспортних засобів
+                      тощо.
+                    </li>
+                    <li>
+                      Стягнення аліментів: Юридичне супроводження справ про
+                      нарахування, збільшення, зміну чи припинення аліментів.
+                    </li>
+                    <li>
+                      Установлення/оспорення батьківства: Допомога у проведенні
+                      експертизи, зборі доказів, побудова позиції та
+                      представництво у суді.
+                    </li>
+                    <li>
+                      Позбавлення або поновлення батьківських прав: Захист прав
+                      дитини і батьків, підготовка документів, участь у судових
+                      засіданнях.
+                    </li>
+                    <li>
+                      Опіка, піклування, місце проживання дитини: Допомога у
+                      оформленні опіки, піклуванні, визначення місця проживання
+                      дитини, порядок побачень з одним із батьків.
+                    </li>
+                    <li>
+                      Шлюбний договір: Підготовка та аналіз договорів, правовий
+                      супровід під час укладення або внесення змін.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="commercial">
+                  <h2>Господарські справи</h2>
+                  <p>
+                    Послуги у сфері господарського права: Ведення бізнесу завжди
+                    пов’язане з правовими ризиками: конфлікти з контрагентами,
+                    спори з податковими органами, недобросовісні партнери,
+                    перевірки чи рейдерські атаки. Ми працюємо на випередження,
+                    допомагаючи вам уникати ризиків і вирішувати спори у
+                    законний та ефективний спосіб.
+                  </p>
+                  <ul>
+                    <li>
+                      Юридичний супровід угод та контрактів: Розробка, аналіз,
+                      погодження договорів будь-якого рівня складності.
+                    </li>
+                    <li>
+                      Господарські спори: Представництво інтересів у судах з
+                      питань невиконання договорів, поставки, підряду, оренди,
+                      стягнення заборгованостей.
+                    </li>
+                    <li>
+                      Супровід під час перевірок, спори з державними органами:
+                      Юридичний захист під час податкових, екологічних, трудових
+                      перевірок, оскарження рішень органів влади.
+                    </li>
+                    <li>
+                      Захист бізнесу від недобросовісних контрагентів:
+                      Превентивна перевірка партнерів, виявлення шахрайства,
+                      повернення активів.
+                    </li>
+                    <li>
+                      Супровід банкрутства: Захист інтересів кредитора або
+                      боржника, супровід процедури ліквідації.
+                    </li>
+                    <li>
+                      Реєстраційні та установчі дії: Реєстрація бізнесу, зміна
+                      КВЕДів, засновників, адреси, статутних документів.
+                    </li>
+                    <li>
+                      Супровід ЗЕД (зовнішньоекономічної діяльності): Контракти,
+                      валютне регулювання, митні питання, спори з нерезидентами.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="labor">
+                  <h2>Трудові справи</h2>
+                  <p>
+                    Послуги у сфері трудового права: Права працівника і
+                    обов’язки роботодавця — це основа стабільних трудових
+                    відносин. Коли ця рівновага порушується, виникають
+                    конфлікти, які потребують чіткого юридичного вирішення.
+                  </p>
+                  <ul>
+                    <li>
+                      Оскарження незаконного звільнення: Аналіз підстав,
+                      підготовка позову, захист у суді.
+                    </li>
+                    <li>
+                      Стягнення заборгованості по заробітній платі: Виплата
+                      премій, компенсацій, лікарняних, відпускних.
+                    </li>
+                    <li>
+                      Відновлення на роботі: Судовий супровід, поновлення на
+                      посаді, виплата компенсацій.
+                    </li>
+                    <li>
+                      Аналіз та супровід трудових договорів: Перевірка на
+                      законність, вигідні умови для працівника.
+                    </li>
+                    <li>
+                      Захист прав при мобілізації або декретній відпустці.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="credit">
+                  <h2>Кредитні спори</h2>
+                  <p>
+                    Послуги у кредитних спорах: Зіткнулися з прострочкою, тиском
+                    банку чи колекторів? Не погоджуєтесь з умовами кредитного
+                    договору? Ситуація складна, але не безвихідна.
+                  </p>
+                  <ul>
+                    <li>
+                      Оскарження кредитних договорів та змін до них: Захист від
+                      неправомірних дій колекторів та банківського тиску.
+                    </li>
+                    <li>Супровід у суді та виконавчому провадженні.</li>
+                    <li>
+                      Юридичний супровід кредитних договорів з банками: Захист
+                      активів бізнесу від примусового стягнення.
+                    </li>
+                    <li>
+                      Супровід спорів щодо кредитних зобов’язань у господарських
+                      судах.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="admin">
+                  <h2>Адміністративні справи</h2>
+                  <p>
+                    Послуги у сфері адміністративного права: У відносинах з
+                    органами влади громадяни та бізнес часто опиняються в
+                    нерівних умовах. Ми допомагаємо повернути баланс — через
+                    правову підтримку, оскарження рішень і захист у судах.
+                  </p>
+                  <ul>
+                    <li>
+                      Оскарження рішень та дій державних органів: Податкові,
+                      митні, правоохоронні, органи місцевого самоврядування.
+                    </li>
+                    <li>
+                      Оскарження адміністративних протоколів: Штрафи за ПДР,
+                      порушення карантину, громадського порядку тощо.
+                    </li>
+                    <li>
+                      Оскарження бездіяльності органів влади: Юридичний захист
+                      під час податкових, екологічних, трудових перевірок,
+                      оскарження рішень органів влади.
+                    </li>
+                    <li>
+                      Оскарження рішень атестаційних, медико-соціальних
+                      експертних, військово-лікарських комісій.
+                    </li>
+                    <li>
+                      Надання правової допомоги з питань громадянства та
+                      міграції: Митні спори.
+                    </li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+
+                <div class="mi-section" id="business">
+                  <h2>Захист бізнесу</h2>
+                  <p>
+                    Послуги щодо захисту бізнесу: У сучасних умовах бізнес
+                    стикається з викликами з боку державних органів,
+                    недобросовісних контрагентів, конкурентів та внутрішніх
+                    ризиків. Ми забезпечуємо надійний юридичний захист, щоб ваш
+                    бізнес міг розвиватися впевнено та без зайвих загроз.
+                  </p>
+                  <ul>
+                    <li>
+                      Комплексне абонентське обслуговування бізнесу на постійній
+                      основі.
+                    </li>
+                    <li>
+                      Реєстрація та захист прав інтелектуальної власності.
+                    </li>
+                    <li>Господарські та корпоративні спори.</li>
+                    <li>
+                      Податкові спори та супровід під час здійснення перевірок
+                      контролюючими органами.
+                    </li>
+                    <li>
+                      Супровід службових перевірок, розслідування протиправних
+                      дій працівників та партнерів компанії.
+                    </li>
+                    <li>Перевірка контрагентів.</li>
+                    <li>Правова допомога у справах про банкрутство.</li>
+                    <li>
+                      Захист майна та активів компанії, виведення їх з-під
+                      арешту, антирейдерська практика.
+                    </li>
+                    <li>Представництво у відносинах з державними органами.</li>
+                  </ul>
+                  <p>
+                    Незалежно від складності справи, ми завжди підходимо до
+                    захисту комплексно: детально вивчаємо обставини, аналізуємо
+                    всі можливі ризики й нюанси, щоб побудувати максимально
+                    ефективну стратегію саме під вашу ситуацію.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mi-right-side">
+                <div class="mi-buttons">
+                  <button class="mi-button active" data-target="criminal">
+                    Кримінальні справи
+                  </button>
+                  <button class="mi-button" data-target="civil">
+                    Цивільні справи
+                  </button>
+                  <button class="mi-button" data-target="family">
+                    Сімейні справи
+                  </button>
+                  <button class="mi-button" data-target="commercial">
+                    Господарські справи
+                  </button>
+                  <button class="mi-button" data-target="labor">
+                    Трудові справи
+                  </button>
+                  <button class="mi-button" data-target="credit">
+                    Кредитні спори
+                  </button>
+                  <button class="mi-button" data-target="admin">
+                    Адміністративні справи
+                  </button>
+                  <button class="mi-button" data-target="business">
+                    Захист бізнесу
+                  </button>
+                </div>
+
+                <!-- Dropdown for mobile -->
+                <select id="mi-dropdown" class="mi-dropdown">
+                  <option value="criminal">Кримінальні справи</option>
+                  <option value="civil">Цивільні справи</option>
+                  <option value="family">Сімейні справи</option>
+                  <option value="commercial">Господарські справи</option>
+                  <option value="labor">Трудові справи</option>
+                  <option value="credit">Кредитні спори</option>
+                  <option value="admin">Адміністративні справи</option>
+                  <option value="business">Захист бізнесу</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="when-to-contact">
+          <div class="content-wrapper">
+            <div class="wrapper">
+              <div class="wc-left-side">
+                <h1>Коли звертатися до адвоката з кримінального права?</h1>
+                <p>
+                  Якщо ви або хтось з ваших близьких стали обвинуваченим,
+                  підозрюваним або потерпілим у кримінальній справі, звернення
+                  до досвідченого адвоката – це перший крок до ефективного
+                  захисту ваших прав. Пам’ятайте, що своєчасна юридична допомога
+                  може значно вплинути на результат справи.
+                </p>
+              </div>
+              <div class="wc-right-side">
+                <img src="./images/team/company_team_2.png" alt="When to contact" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="approach-container">
+          <div class="content-wrapper">
+            <h1><strong>Наш підхід до співпраці:</strong></h1>
+            <div class="numbered-list">
+              <div class="list-item">
+                <div class="number">01</div>
+                <div class="text">
+                  <p class="title">Первина консультація та аналіз ситуації</p>
+                  <p class="subtitle">
+                    Обговорюємо вашу ситуацію, вивчаємо документи та окреслюємо
+                    перспективи. Після Ви отримуєте первинну правову оцінку,
+                    чітке бачення можливих рішень і початковий план дій.
+                  </p>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="number">02</div>
+                <div class="text">
+                  <p class="title">
+                    Розробка стратегії та підготовка процессуальних документів
+                  </p>
+                  <p class="subtitle">
+                    Виходячи з аналізу справи ми розробляємо стратегію та
+                    складаємо необхідну документацію для подальшого
+                    представництва ваших інтересів та захисту прав
+                  </p>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="number">03</div>
+                <div class="text">
+                  <p class="title">
+                    Юридичний супровід та представництво інтересів
+                  </p>
+                  <p class="subtitle">
+                    Супровід та представництво ваших інтересів на всіх етапах
+                    вирішення справи, включаючи досудове врегулювання спорів та
+                    судовий розгляд.
+                  </p>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="number">04</div>
+                <div class="text">
+                  <p class="title">Підтримка після завершення справи</p>
+                  <p class="subtitle">
+                    Супроводжуємо Вас до фінального результату, допомогаємо з
+                    виконанням отриманих рішень та після досягнення результату
+                    залишаємося з вами на зв’язку для уникнення схожих проблем у
+                    майбутньому або допомогти з іншими правовими питаннями.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!--==========================
+    Contact Us
+  ============================-->
+        <section id="section-contact-us" class="contact-section">
+          <div class="content-wrapper">
+            <div class="contact-text">
+              <div class="line"></div>
+              <h2 class="services-heading slide-up">Отримати консультацію</h2>
+            </div>
+
+            <div class="contact-container">
+              <!-- Contact Information -->
+              <div class="contact-info">
+                <div class="contact-block">
+                  <h4>Зв'яжіться з нами</h4>
+                  <div class="contact-details">
+                    <a href="https://t.me/+380674857400" target="_blank" rel="noopener">
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                    <p>+380 (67) 485 74 00</p>
+                  </div>
+                </div>
+                <div class="contact-block">
+                  <h4>Напишіть нам</h4>
+                  <div class="contact-details">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <p>office@gp.od.ua</p>
+                  </div>
+                </div>
+
+                <div class="contact-block">
+                  <h4>Розташування</h4>
+                  <div class="contact-details">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <p>65012, Італійський бульвар, 1-Г, офіс 309</p>
+                  </div>
+                </div>
+
+                <div class="contact-block">
+                  <h4>Робочі години</h4>
+                  <div class="contact-details">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <p>Пн-Пт: 9:00 - 18:00</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Form -->
+              <div class="contact-form">
+                <form class="section-contact-form" action="send_message.php" method="POST" id="contactForm">
+                  <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required />
+                  <input type="email" id="email" name="email" placeholder="example@email.com" required />
+                  <input type="tel" id="phone" name="phone" placeholder="+380 (67) 485 74 00" required />
+                  <textarea id="message" name="message" required placeholder="Опишіть ваше питання або запит..."></textarea>
+                  <button type="submit" class="contact-button" id="submitBtn">
+                    <span class="btn-text">Надіслати</span>
+                    <span class="btn-loading" style="display: none;">Надсилання...</span>
+                  </button>
+                </form>
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Map -->
+        <!-- <div id="map" class="map-container"></div> -->
+
+
+        <!--==========================
+    Footer
+  ============================-->
+
+     <footer id="footer">
+          <div class="content-wrapper"></div>
+          <div class="footer-top">
+            <div class="footer-container">
+              <!-- Logo -->
+              <div class="footer-box logo-box">
+                <img
+                  src="./images/logos/logo_ua_footer.png"
+                  alt="Logo"
+                  class="footer-logo"
+                />
+                <p class="footer-description">
+                  Ваш надійний партнер у вирішені юридичних питань понад 25 років.
+                </p>
+                <div class="social-links bottom-icons">
+                  <a href="tel:+380674857400" aria-label="Телефон" target="_blank" rel="noopener">
+                    <ion-icon name="call-outline"></ion-icon>
+                  </a>
+                  <a href="viber://chat?number=+380674857400" aria-label="Viber" target="_blank" rel="noopener">
+                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                  </a>
+                  <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                  <a href="https://www.instagram.com/gp.odessa_lawfirm/" aria-label="Instagram" target="_blank" rel="noopener">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Useful Links -->
+              <div class="footer-box">
+                <h4>Корисні посилання</h4>
+                <ul>
+                  <li><span>›</span> <a href="index.html#main-section">Головна</a></li>
+                  <li>
+                    <span>›</span> <a href="index.html#work-total-container">Про нас</a>
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a href="index.html#more-services-container">Послуги</a>
+                  </li>
+                  <li><span>›</span> <a href="index.html#team-section">Команда</a></li>
+                  <li><span>›</span> <a href="index.html#blog-section">Новини</a></li>
+                  <li>
+                    <span>›</span> <a href="index.html#section-contact-us">Контакти</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 
+Наші послуги -->
+              <div class="footer-box">
+                <h4>Наші послуги</h4>
+                <ul>
+                  <li>
+                    <span>›</span>
+                    <a href="info.html?type=criminal"
+                      >Кримінальні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=civil"
+                      >Цивільні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=family"
+                      >Сімейні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=commerical"
+                      >Господарські справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=labor"
+                      >Трудові справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=credit"
+                      >Кредитні спори</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=admin"
+                      >Адміністративні справи</a
+                    >
+                  </li>
+                  <li>
+                    <span>›</span>
+                    <a
+                      href="info.html?type=business"
+                      >Захист бізнесу</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Contact Info -->
+              <div class="footer-box footer-contact">
+                <h4>Зв'яжіться з нами</h4>
+                <div class="contact-item">
+                  <ion-icon name="location-outline"></ion-icon>
+                  <div>
+                    <strong>Адреса:</strong>
+                    <span>65012, Італійський бульвар, 1-Г, офіс 309</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <ion-icon name="mail-outline"></ion-icon>
+                  <div>
+                    <strong>Електронна пошта:</strong>
+                    <span>office@gp.od.ua</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <ion-icon name="call-outline"></ion-icon>
+                  <div>
+                    <strong>Телефон:</strong>
+                    <span>+380 (67) 485 74 00</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <ion-icon name="time-outline"></ion-icon>
+                  <div>
+                    <strong>Робочі години:</strong>
+                    <span>Пн-Пт: 9:00 - 18:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom Section -->
+          <div class="footer-bottom">
+            <p>&copy; 2025 Грищенко та Партнери. Всі права захищені.</p>
+            <p>
+              Створено <a href="https://blumotech.com" target="_blank" rel="noopener">Blumotech</a> для
+              Грищенко та Партнери, 2025
+            </p>
+          </div>
+        </footer>
+
+        <!-- Consultation Modal -->
+        <div id="consultationModal" class="modal-overlay">
+          <div class="new-modal-container">
+            <div class="new-modal-content">
+              <button class="new-modal-close" onclick="closeConsultationModal()">×</button>
+              
+              <div class="modal-main-content">
+                <div class="modal-header-new">
+                  <h3>Отримайте вирішення Ваших питань вже сьогодні!</h3>
+                  <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
+                </div>
+                
+                <form class="new-modal-form" id="consultationForm">
+                  <div class="form-group">
+                    <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
+                  </div>
+                  
+                  <div class="form-group">
+                    <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
+                  </div>
+                  
+                  <div class="form-group">
+                    <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
+                  </div>
+                  
+                  <div class="form-group">
+                    <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
+                  </div>
+                  
+                  <p class="new-form-disclaimer">
+                    Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
+                    <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
+                  </p>
+                  
+                  <button type="submit" class="new-modal-submit">
+                    <span class="btn-text">Надіслати</span>
+                    <span class="btn-loading" style="display: none;">
+                      <div class="loading-spinner"></div>
+                      Надсилання...
+                    </span>
+                  </button>
+                </form>
+              </div>
+              
+              <div class="modal-contact-icons">
+                <a href="https://t.me/+380674857400" target="_blank" class="contact-icon telegram">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                  </svg>
+                </a>
+                
+                <a href="viber://chat?number=+380674857400" target="_blank" class="contact-icon viber">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2M8.53 7.33c.16 0 .31 0 .45.01.14.01.34-.05.53.38.2.45.68 1.83.74 1.96.06.13.1.28.02.45-.07.17-.12.27-.23.42-.11.14-.24.32-.34.43-.11.14-.22.29-.09.56.12.27.53 1.03 1.26 1.67.94.83 1.72 1.08 1.95 1.2.23.12.37.1.5-.06.14-.16.62-.72.78-.97.16-.25.33-.21.55-.12.23.08 1.42.67 1.66.79.24.12.39.18.45.28.05.1.05.59-.12.99-.18.4-.33.72-.37.75-.05.06-.9.21-1.41.21-.51 0-1.26-.16-2.6-.84-1.4-.71-2.33-1.96-2.4-2.05-.08-.09-.65-.86-.65-1.64s.41-1.16.56-1.31c.15-.15.33-.19.44-.19z"/>
+                  </svg>
+                </a>
+                
+                <a href="https://www.instagram.com/gp.odessa_lawfirm/" target="_blank" class="contact-icon instagram">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="modal-overlay">
+          <div class="new-success-modal">
+            <button class="new-modal-close" onclick="closeSuccessModal()">×</button>
+            
+            <div class="success-content">
+              <div class="success-check-icon">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                  <circle cx="30" cy="30" r="30" fill="#4CAF50"/>
+                  <path d="M20 30L27 37L40 23" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              
+              <h3>Дякуємо, заявку успішно подано!</h3>
+              
+              <div class="success-text">
+                <p>Найближчим часом наш спеціаліст з Вами зв'яжиться.</p>
+                <p class="highlight-text">У робочий час ми відповідаємо протягом 3х годин!</p>
+              </div>
+              
+              <div class="working-hours">
+                <p><strong>Ми працюємо: Пн-Пт 10:00 - 18:00</strong></p>
+              </div>
+              
+              <div class="after-hours-note">
+                <p>Якщо Ви залишили заявку у нерабочі часи, ми зв'яжемось з Вами наступного робочого дня з 10:00</p>
+              </div>
+              
+              <button class="return-button" onclick="closeSuccessModal()">Повернутись на головну</button>
+              
+              <div class="contact-via">
+                <p>Ви також можете зв'язатись з нами через:</p>
+                <div class="success-social-icons">
+                  <a href="https://t.me/+380674857400" target="_blank" class="success-social-icon telegram">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </a>
+                  
+                  <a href="viber://chat?number=+380674857400" target="_blank" class="success-social-icon viber">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2M8.53 7.33c.16 0 .31 0 .45.01.14.01.34-.05.53.38.2.45.68 1.83.74 1.96.06.13.1.28.02.45-.07.17-.12.27-.23.42-.11.14-.24.32-.34.43-.11.14-.22.29-.09.56.12.27.53 1.03 1.26 1.67.94.83 1.72 1.08 1.95 1.2.23.12.37.1.5-.06.14-.16.62-.72.78-.97.16-.25.33-.21.55-.12.23.08 1.42.67 1.66.79.24.12.39.18.45.28.05.1.05.59-.12.99-.18.4-.33.72-.37.75-.05.06-.9.21-1.41.21-.51 0-1.26-.16-2.6-.84-1.4-.71-2.33-1.96-2.4-2.05-.08-.09-.65-.86-.65-1.64s.41-1.16.56-1.31c.15-.15.33-.19.44-.19z"/>
+                    </svg>
+                  </a>
+                  
+                  <a href="https://www.instagram.com/gp.odessa_lawfirm/" target="_blank" class="success-social-icon instagram">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+
+        <script src="./script.js"></script>
+      </div>
+    </main>
+  </body>
+</html>

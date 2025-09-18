@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/styles.css?v=1.3" />
+  <link rel="stylesheet" href="./css/new-modal-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <title>Що робити при перевірці бізнесу контролюючими органами - Grischenko & Partners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-beige': '#a69d84',
+            'custom-dark-blue': '#01293F',
+            'custom-light-beige': '#f5f3f0',
+            'custom-very-light-beige': '#f5f5ee',
+            'custom-border': '#e8e4e0',
+            'custom-separator': '#d3d3d3'
+          },
+          fontFamily: {
+            'serif': ['Times New Roman', 'Times', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white blog-page">
+  <main class="main-container">
+    <div class="inner-content">
+      <!-- Navigation -->
+      <nav class="nav-bar-container" role="navigation" aria-label="Основна навігація">
+        <div class="left-nav">
+          <a href="/" class="logo-link" aria-label="Грищенко та партнери - головна сторінка">
+            <img src="./images/logos/logo_ua.png" class="logo logo-light" alt="Логотип світлий" />
+            <img src="./images/logos/logo_ua_dark.png" class="logo logo-dark" alt="Логотип темний" />
+          </a>
+        </div>
+
+        <div class="nav-center">
+          <ul class="nav-list" role="menubar">
+            <li role="none"><a href="index.html#main-section" role="menuitem" aria-label="Перейти до головної секції">Головна</a></li>
+            <li role="none"><a href="index.html#work-total-container" role="menuitem" aria-label="Перейти до секції про нас">Про нас</a></li>
+            <li role="none" class="dropdown">
+              <a href="index.html#more-services-container" role="menuitem" aria-label="Перейти до секції послуг" aria-haspopup="true" aria-expanded="false">
+                Послуги
+                <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li role="none"><a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a></li>
+                <li role="none"><a href="info.html?type=civil" role="menuitem">Цивільні справи</a></li>
+                <li role="none"><a href="info.html?type=family" role="menuitem">Сімейні справи</a></li>
+                <li role="none"><a href="info.html?type=commerical" role="menuitem">Господарські справи</a></li>
+                <li role="none"><a href="info.html?type=labor" role="menuitem">Трудові справи</a></li>
+                <li role="none"><a href="info.html?type=credit" role="menuitem">Кредитні спори</a></li>
+                <li role="none"><a href="info.html?type=admin" role="menuitem">Адміністративні справи</a></li>
+                <li role="none"><a href="info.html?type=business" role="menuitem">Захист бізнесу</a></li>
+              </ul>
+            </li>
+            <li role="none" class="dropdown">
+              <a href="index.html#team-section" role="menuitem" aria-label="Перейти до секції команди" aria-haspopup="true" aria-expanded="false">
+                Команда
+                <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li role="none"><a href="company.html" role="menuitem">Про компанію</a></li>
+                <li role="none"><a href="index.html#team-section" role="menuitem">Наша команда</a></li>
+                <li role="none"><a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a></li>
+                <li role="none"><a href="index.html#team-section" role="menuitem">Петрова Альона - Партнер</a></li>
+                <li role="none"><a href="index.html#team-section" role="menuitem">Бойко Анастасія - Партнер</a></li>
+                <li role="none"><a href="index.html#team-section" role="menuitem">Коротнян Павло - Партнер</a></li>
+              </ul>
+            </li>
+            <li role="none" class="dropdown">
+              <a href="index.html#blog-section" role="menuitem" aria-label="Перейти до секції новин" aria-haspopup="true" aria-expanded="false">
+                Новини
+                <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li role="none"><a href="blog_one.html" role="menuitem">Що робити при перевірці бізнесу</a></li>
+                <li role="none"><a href="blog_two.html" role="menuitem">Шлюбний договір: чому це важливо</a></li>
+                <li role="none"><a href="blog_three.html" role="menuitem">Типові помилки при укладанні договорів</a></li>
+              </ul>
+            </li>
+            <li role="none"><a href="index.html#section-contact-us" role="menuitem" aria-label="Перейти до секції контактів">Контакти</a></li>
+          </ul>
+        </div>
+          
+        <div class="nav-right">
+          <button class="nav-button" onclick="openConsultationModal()" aria-label="Отримати консультацію - відкрити форму">
+            Отримати консультацію
+          </button>
+          
+          <!-- Hamburger icon -->
+          <button class="hamburger-menu text-2xl" onclick="toggleMobileMenu()" aria-label="Відкрити мобільне меню навігації" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <div class="mobile-nav" role="dialog" aria-label="Мобільне меню навігації" aria-hidden="true">
+        <div class="mobile-nav-header">
+          <img src="./images/logos/logo_ua.png" alt="Логотип" class="mobile-nav-logo" />
+          <button class="mobile-close-btn" onclick="toggleMobileMenu()" aria-label="Закрити мобільне меню">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="mobile-nav-menu" role="menu">
+          <a href="index.html#main-section" role="menuitem" aria-label="Перейти до головної секції">Головна</a>
+          <a href="index.html#work-total-container" role="menuitem" aria-label="Перейти до секції про нас">Про нас</a>
+          
+          <div class="mobile-dropdown">
+            <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції послуг" onclick="toggleMobileDropdown(event, 'services')">
+              Послуги
+              <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+            </a>
+            <div class="mobile-dropdown-content" id="services-dropdown">
+              <a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a>
+              <a href="info.html?type=civil" role="menuitem">Цивільні справи</a>
+              <a href="info.html?type=family" role="menuitem">Сімейні справи</a>
+              <a href="info.html?type=commerical" role="menuitem">Господарські справи</a>
+              <a href="info.html?type=labor" role="menuitem">Трудові справи</a>
+              <a href="info.html?type=credit" role="menuitem">Кредитні спори</a>
+              <a href="info.html?type=admin" role="menuitem">Адміністративні справи</a>
+              <a href="info.html?type=business" role="menuitem">Захист бізнесу</a>
+            </div>
+          </div>
+          
+          <div class="mobile-dropdown">
+            <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції команди" onclick="toggleMobileDropdown(event, 'team')">
+              Команда
+              <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+            </a>
+            <div class="mobile-dropdown-content" id="team-dropdown">
+              <a href="company.html" role="menuitem">Про компанію</a>
+              <a href="index.html#team-section" role="menuitem">Наша команда</a>
+              <a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a>
+              <a href="index.html#team-section" role="menuitem">Петрова Альона - Партнер</a>
+              <a href="index.html#team-section" role="menuitem">Бойко Анастасія - Партнер</a>
+              <a href="index.html#team-section" role="menuitem">Коротнян Павло - Партнер</a>
+            </div>
+          </div>
+          
+          <div class="mobile-dropdown">
+            <a href="javascript:void(0)" role="menuitem" aria-label="Перейти до секції новин" onclick="toggleMobileDropdown(event, 'news')">
+              Новини
+              <ion-icon name="chevron-down-outline" class="mobile-dropdown-arrow"></ion-icon>
+            </a>
+            <div class="mobile-dropdown-content" id="news-dropdown">
+              <a href="blog_one.html" role="menuitem">Що робити при перевірці бізнесу</a>
+              <a href="blog_two.html" role="menuitem">Шлюбний договір: чому це важливо</a>
+              <a href="blog_three.html" role="menuitem">Типові помилки при укладанні договорів</a>
+            </div>
+          </div>
+          
+          <a href="index.html#section-contact-us" role="menuitem" aria-label="Перейти до секції контактів">Контакти</a>
+          <button class="mobile-nav-button" onclick="openConsultationModal()" aria-label="Отримати консультацію - відкрити форму">Отримати консультацію</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <main class="blog-main-content" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; padding-top: 120px;">
+        <!-- Left Block and Date -->
+        <div class="flex items-center mb-4">
+          <div class="text-gray-500 text-sm border-b border-gray-300 pb-1">25.04.2025</div>
+        </div>
+        
+        <!-- Breadcrumbs -->
+        <div class="mb-5 text-sm text-gray-600">
+          <a href="index.html" class="text-custom-beige hover:underline">Головна</a> › 
+          <a href="index.html#blog-section" class="text-custom-beige hover:underline">Новини</a> › 
+          <span class="hidden sm:inline">Що робити при перевірці бізнесу контролюючими органами: інструкція від юриста</span>
+          <span class="sm:hidden">Блог</span>
+        </div>
+        
+        <!-- Title and Introduction with Left Bar -->
+        <div class="flex">
+          <div class="w-4 md:w-10 mb-10 bg-custom-beige mr-4 md:mr-6 flex-shrink-0"></div>
+          <div class="flex-1">
+            <!-- Article Title -->
+            <h1 class="text-custom-dark-blue font-serif text-2xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">
+              Що робити при перевірці бізнесу контролюючими органами: інструкція від юриста
+            </h1>
+            
+            <!-- Introduction -->
+            <p class="text-custom-dark-blue text-base md:text-lg mb-6 md:mb-8 leading-relaxed font-sans italic">
+                Перевірка бізнесу державними органами часто стає несподіванкою навіть для сумлінних підприємців. Як діяти, щоб мінімізувати ризики? Що потрібно знати та як підготувати документи? У цьому матеріалі ми дамо покрокову інструкцію, яка допоможе захистити ваш бізнес ще до початку перевірки.            </p>
+          </div>
+        </div>
+        
+        <!-- Main Image -->
+        <div class="mb-6 md:mb-8">
+          <img src="images/stock/blog/blog_one_img.png" alt="Гаманець та молоток судді" class="w-full h-48 md:h-96 object-cover rounded-lg">
+        </div>
+        
+        <!-- Article Content -->
+        <article class="prose prose-lg max-w-none">
+          <!-- New introductory content -->
+          <p class="text-gray-700 leading-relaxed font-sans mb-6 font-sans">
+            Перевірки бізнесу контролюючими органами — реальність, з якою може зіткнутися будь-який підприємець. Податкова служба, Держпраці, ДСНС, екологічні інспекції — список структур, що мають право проводити перевірки, чималий. Навіть за умови ведення діяльності у повній відповідності до закону, візит інспекторів може створити серйозний стрес, оскільки кожна перевірка може обернутися серйозними ризиками: від штрафів до блокування роботи компанії. Щоб убезпечити свій бізнес, важливо знати, як правильно діяти у разі перевірки.
+          </p>
+          <p class="text-gray-700 leading-relaxed font-sans mb-8 font-sans">
+            У цій статі наші адвокати підготували для вас чек-ліст, що допоможе Вам захисти свої парва та інтереси вашого бізнесу
+          </p>
+          
+          <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-4">1. Перевірте підстави для перевірки</h2>
+          <p class="text-gray-700 leading-relaxed font-sans mb-4 font-sans">Перш за все — вимагайте у перевіряючих:</p>
+          <ul class="mb-6 pl-6 space-y-2">
+            <li class="text-gray-700 leading-relaxed font-sans font-sans">• Офіційне направлення на проведення перевірки.</li>
+            <li class="text-gray-700 leading-relaxed font-sans font-sans">• Посвідчення осіб, які прибули для її проведення.</li>
+            <li class="text-gray-700 leading-relaxed font-sans font-sans">• Наказ або рішення керівника органу контролю про призначення перевірки.</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed font-sans mb-6 font-sans">Не підписуйте жодних документів до повної перевірки їхньої законності та змісту.</p>
+          
+          <!-- Lawyer's Tip Box -->
+          <div class="bg-custom-very-light-beige p-4 md:p-6 my-6 border-l-4 border-custom-separator">
+            <p class="text-gray-700 m-0 leading-relaxed text-sm md:text-base font-sans"><strong>Порада юриста:</strong> перевірте в документах правильність ваших реквізитів, вид перевірки та її підстави.</p>
+          </div>
+          
+          <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-4">2. Фіксуйте все письмово</h2>
+          <p class="text-gray-700 leading-relaxed font-sans mb-4">Ведіть власний облік усіх дій перевіряючих:</p>
+          <ul class="mb-6 pl-6 space-y-2">
+            <li class="text-gray-700 leading-relaxed font-sans">• Занотовуйте, які документи запитують.</li>
+            <li class="text-gray-700 leading-relaxed font-sans">• Фіксуйте, які питання ставлять.</li>
+            <li class="text-gray-700 leading-relaxed font-sans">• Зберігайте копії всіх документів, які передаєте або отримуєте.</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed font-sans mb-6">Якщо є можливість — здійснюйте аудіо- або відеофіксацію процесу перевірки (з повідомленням про це перевіряючих).</p>
+          
+          <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-4">3. Обмежте доступ до інформації</h2>
+          <p class="text-gray-700 leading-relaxed font-sans mb-4">Передавайте перевіряючим лише ті документи та відомості, які прямо передбачені предметом перевірки.</p>
+          <p class="text-gray-700 leading-relaxed font-sans mb-6">Не надавайте <strong>внутрішні документи</strong> чи іншу інформацію без чіткої вимоги і законних підстав.</p>
+          
+          <!-- Reminder Box -->
+          <div class="bg-custom-very-light-beige p-4 md:p-6 my-6 border-l-4 border-custom-separator">
+            <p class="text-gray-700 m-0 leading-relaxed text-sm md:text-base"><strong>Пам'ятайте:</strong> у вас є право відмовити в наданні інформації, яка не стосується предмету перевірки.</p>
+          </div>
+          
+          <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-4">4. Залучіть адвоката</h2>
+          <p class="text-gray-700 leading-relaxed font-sans mb-4">Якщо є найменші сумніви щодо законності дій перевіряючих, негайно залучіть адвоката:</p>
+          <ul class="mb-6 pl-6 space-y-2">
+            <li class="text-gray-700 leading-relaxed font-sans">• Юрист оперативно оцінить ситуацію.</li>
+            <li class="text-gray-700 leading-relaxed font-sans">• Допоможе скласти письмові зауваження до акту перевірки.</li>
+            <li class="text-gray-700 leading-relaxed font-sans">• Забезпечить захист ваших прав у разі конфлікту або порушень.</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed font-sans mb-6">Підтримка адвоката на цьому етапі часто дозволяє забезпечити уникнення серйозних штрафів і негативних наслідків.</p>
+          
+          <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-4">5. Оскаржуйте неправомірні дії</h2>
+          <p class="text-gray-700 leading-relaxed font-sans mb-4">У разі виявлення порушень ваших прав або незаконних дій контролюючих органів:</p>
+          <ul class="mb-6 pl-6 space-y-2">
+            <li class="text-gray-700 leading-relaxed font-sans">• Складіть акт з фіксацією порушень.</li>
+            <li class="text-gray-700 leading-relaxed font-sans">• Подавайте скарги до керівництва органу або до суду.</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed font-sans mb-6">Юридично грамотне оскарження може повністю скасувати результати перевірки або істотно зменшити накладені санкції.</p>
+          
+          <p class="text-gray-700 leading-relaxed font-sans mb-8">І пам'ятайте, що грамотна поведінка під час перевірки — запорука успіху та безпеки вашого бізнесу. Дійте впевнено, вимагайте дотримання закону, і за можливості — залучайте професійного адвоката для забезпечення захисту ваших інтересів.</p>
+          
+          <!-- Author -->
+          <div class="border-t border-gray-200 pt-6">
+            <p class="text-gray-500 italic text-sm md:text-base font-sans">
+              Автор: Команда адвокатів АО "Грищенко та партнери Одеса"
+            </p>
+          </div>
+        </article>
+      </main>
+
+      <!-- Call to Action Section -->
+      <section class="bg-custom-light-beige border border-custom-border py-8 md:py-12 px-4 md:px-6 mb-0">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+            <div class="flex-1 text-center md:text-left">
+              <h2 class="text-custom-dark-blue font-serif text-xl md:text-2xl font-bold mb-2">
+                Потрібен захист вашого бізнесу?
+              </h2>
+              <p class="text-gray-700 font-sans text-base md:text-lg">
+                Звертайтесь до нас за консультацією.
+              </p>
+            </div>
+            <div class="flex-shrink-0 w-full md:w-auto">
+              <button class="w-full md:w-auto bg-custom-beige text-white border-none rounded-lg shadow-md font-sans font-medium py-3 md:py-4 px-6 md:px-8 text-base cursor-pointer transition-colors duration-300 hover:bg-opacity-90" onclick="openConsultationModal()">
+                Залишити запит
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Consultation Modal -->
+      <div id="consultationModal" class="modal-overlay">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="modal-close" onclick="closeConsultationModal()">&times;</button>
+            <h3>Отримайте вирішення ваших питань вже сьогодні!</h3>
+            <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
+          </div>
+          <form class="modal-form" id="consultationForm">
+            <div class="form-row">
+              <input type="text" id="modalName" name="name" placeholder="Введіть ваше ім'я" required />
+              <input type="email" id="modalEmail" name="email" placeholder="example@email.com" required />
+            </div>
+            <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
+            <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
+            <p class="form-disclaimer">
+              Натискаючи кнопку «Надіслати», ви погоджуєтесь з 
+              <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
+            </p>
+            <button type="submit" class="modal-submit-btn">
+              <span class="btn-text">Надіслати</span>
+              <span class="btn-loading" style="display: none;">Надсилання...</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="successModal" class="modal-overlay">
+        <div class="modal-content success-modal">
+          <div class="modal-header">
+            <button class="modal-close" onclick="closeSuccessModal()">&times;</button>
+            <h3>Дякуємо за ваше повідомлення!</h3>
+          </div>
+          <div class="success-details">
+            <p>Ваша заявка успішно надіслана. Наші спеціалісти зв'яжуться з вами найближчим часом.</p>
+            <p>Час обробки: до 3 робочих годин</p>
+          </div>
+          <button class="modal-submit-btn" onclick="closeSuccessModal()">Закрити</button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer" class="footer">
+        <div class="footer-top">
+          <div class="footer-container">
+            <!-- Logo -->
+            <div class="footer-box logo-box">
+              <img src="./images/logos/logo_ua_footer.png" alt="Логотип" class="footer-logo" />
+              <p class="footer-description">
+                Ваш надійний партнер у вирішені юридичних питань понад 25 років.
+              </p>
+              <div class="social-links bottom-icons">
+                <a href="https://t.me/+380674857400" aria-label="Telegram" target="_blank" rel="noopener">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                  </svg>
+                </a>
+                <a href="viber://chat?number=+380674857400" aria-label="Viber" target="_blank" rel="noopener">
+                  <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                </a>
+                <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://www.instagram.com/gp.odessa_lawfirm/" aria-label="Instagram" target="_blank" rel="noopener">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </div>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="footer-box">
+              <h4>Корисні посилання</h4>
+              <ul>
+                <li><span>›</span> <a href="index.html#main-section">Головна</a></li>
+                <li><span>›</span> <a href="index.html#work-total-container">Про нас</a></li>
+                <li><span>›</span> <a href="index.html#more-services-container">Послуги</a></li>
+                <li><span>›</span> <a href="index.html#team-section">Команда</a></li>
+                <li><span>›</span> <a href="index.html#blog-section">Новини</a></li>
+                <li><span>›</span> <a href="index.html#section-contact-us">Контакти</a></li>
+              </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-box">
+              <h4>Наші послуги</h4>
+              <ul>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=criminal">Кримінальні справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=civil">Цивільні справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=family">Сімейні справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=commerical">Господарські справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=labor">Трудові справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=credit">Кредитні спори</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=admin">Адміністративні справи</a>
+                </li>
+                <li>
+                  <span>›</span>
+                  <a href="info.html?type=business">Захист бізнесу</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-box footer-contact">
+              <h4>Зв'яжіться з нами</h4>
+              <div class="contact-item">
+                <ion-icon name="location-outline"></ion-icon>
+                <div>
+                  <strong>Адреса:</strong>
+                  <span>65012, Італійський бульвар, 1-Г, офіс 309</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div>
+                  <strong>Електронна пошта:</strong>
+                  <span>office@gp.od.ua</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <a href="https://t.me/+380674857400" target="_blank" rel="noopener">
+                  <i class="fa fa-telegram" style="font-size:24px; color: #c5a572; background-color: transparent ;"></i>
+                </a>
+                <div>
+                  <strong>Telegram:</strong>
+                  <span>+380 (67) 485 74 00</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <a href="viber://chat?number=+380674857400" target="_blank" rel="noopener">
+                  <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                </a>
+                <div>
+                  <strong>Viber:</strong>
+                  <span>+380 (67) 485 74 00</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <ion-icon name="time-outline"></ion-icon>
+                <div>
+                  <strong>Робочі години:</strong>
+                  <span>Пн-Пт: 9:00 - 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 Грищенко та Партнери. Всі права захищені.</p>
+          <p>
+            Створено <a href="https://blumotech.com" target="_blank" rel="noopener">Blumotech</a> для
+            Грищенко та Партнери, 2025
+          </p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Consultation Modal -->
+  <div id="consultationModal" class="modal-overlay">
+    <div class="new-modal-container">
+      <div class="new-modal-content">
+        <button class="new-modal-close" onclick="closeConsultationModal()">×</button>
+        
+        <div class="modal-main-content">
+          <div class="modal-header-new">
+            <h3>Отримайте вирішення Ваших питань вже сьогодні!</h3>
+            <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
+          </div>
+          
+          <form class="new-modal-form" id="consultationForm">
+            <div class="form-group">
+              <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
+            </div>
+            
+            <div class="form-group">
+              <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
+            </div>
+            
+            <div class="form-group">
+              <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
+            </div>
+            
+            <p class="new-form-disclaimer">
+              Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
+              <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
+            </p>
+            
+            <button type="submit" class="new-modal-submit">
+              <span class="btn-text">Надіслати</span>
+              <span class="btn-loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                Надсилання...
+              </span>
+            </button>
+          </form>
+        </div>
+        
+        <div class="modal-contact-icons">
+          <a href="https://t.me/+380674857400" target="_blank" class="contact-icon telegram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+          </a>
+          
+          <a href="viber://chat?number=+380674857400" target="_blank" class="contact-icon viber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2M8.53 7.33c.16 0 .31 0 .45.01.14.01.34-.05.53.38.2.45.68 1.83.74 1.96.06.13.1.28.02.45-.07.17-.12.27-.23.42-.11.14-.24.32-.34.43-.11.14-.22.29-.09.56.12.27.53 1.03 1.26 1.67.94.83 1.72 1.08 1.95 1.2.23.12.37.1.5-.06.14-.16.62-.72.78-.97.16-.25.33-.21.55-.12.23.08 1.42.67 1.66.79.24.12.39.18.45.28.05.1.05.59-.12.99-.18.4-.33.72-.37.75-.05.06-.9.21-1.41.21-.51 0-1.26-.16-2.6-.84-1.4-.71-2.33-1.96-2.4-2.05-.08-.09-.65-.86-.65-1.64s.41-1.16.56-1.31c.15-.15.33-.19.44-.19z"/>
+            </svg>
+          </a>
+          
+          <a href="https://www.instagram.com/gp.odessa_lawfirm/" target="_blank" class="contact-icon instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal-overlay">
+    <div class="new-success-modal">
+      <button class="new-modal-close" onclick="closeSuccessModal()">×</button>
+      
+      <div class="success-content">
+        <div class="success-check-icon">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="30" fill="#4CAF50"/>
+            <path d="M20 30L27 37L40 23" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <h3>Дякуємо, заявку успішно подано!</h3>
+        
+        <div class="success-text">
+          <p>Найближчим часом наш спеціаліст з Вами зв'яжиться.</p>
+          <p class="highlight-text">У робочий час ми відповідаємо протягом 3х годин!</p>
+        </div>
+        
+        <div class="working-hours">
+          <p><strong>Ми працюємо: Пн-Пт 10:00 - 18:00</strong></p>
+        </div>
+        
+        <div class="after-hours-note">
+          <p>Якщо Ви залишили заявку у нерабочі часи, ми зв'яжемось з Вами наступного робочого дня з 10:00</p>
+        </div>
+        
+        <button class="return-button" onclick="closeSuccessModal()">Повернутись на головну</button>
+        
+        <div class="contact-via">
+          <p>Ви також можете зв'язатись з нами через:</p>
+          <div class="success-social-icons">
+            <a href="https://t.me/+380674857400" target="_blank" class="success-social-icon telegram">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+            </a>
+            
+            <a href="viber://chat?number=+380674857400" target="_blank" class="success-social-icon viber">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2M8.53 7.33c.16 0 .31 0 .45.01.14.01.34-.05.53.38.2.45.68 1.83.74 1.96.06.13.1.28.02.45-.07.17-.12.27-.23.42-.11.14-.24.32-.34.43-.11.14-.22.29-.09.56.12.27.53 1.03 1.26 1.67.94.83 1.72 1.08 1.95 1.2.23.12.37.1.5-.06.14-.16.62-.72.78-.97.16-.25.33-.21.55-.12.23.08 1.42.67 1.66.79.24.12.39.18.45.28.05.1.05.59-.12.99-.18.4-.33.72-.37.75-.05.06-.9.21-1.41.21-.51 0-1.26-.16-2.6-.84-1.4-.71-2.33-1.96-2.4-2.05-.08-.09-.65-.86-.65-1.64s.41-1.16.56-1.31c.15-.15.33-.19.44-.19z"/>
+              </svg>
+            </a>
+            
+            <a href="https://www.instagram.com/gp.odessa_lawfirm/" target="_blank" class="success-social-icon instagram">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="./script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

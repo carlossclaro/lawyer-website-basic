@@ -1,0 +1,64 @@
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Allow POST requests to send_message.php
+<Files "send_message.php">
+    Order Allow,Deny
+    Allow from all
+    <RequireAll>
+        Require method POST
+    </RequireAll>
+</Files>
+
+<Files "send_message_nicua.php">
+    Order Allow,Deny
+    Allow from all
+    <RequireAll>
+        Require method POST
+    </RequireAll>
+</Files>
+
+<Files "send_message_smtp.php">
+    Order Allow,Deny
+    Allow from all
+    <RequireAll>
+        Require method POST
+    </RequireAll>
+</Files>
+
+# Protect configuration files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "config_smtp.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect log files
+<Files "contact_log.txt">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Prevent access to backup files
+<FilesMatch "\.(bak|backup|old|tmp)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
