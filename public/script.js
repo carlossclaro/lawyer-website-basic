@@ -1,3 +1,22 @@
+// FAQ Toggle Function
+function toggleFAQ(button) {
+  const faqItem = button.closest('.faq-item');
+  const answer = faqItem.querySelector('.faq-answer');
+  const isActive = button.classList.contains('active');
+  
+  // Close all other FAQ items
+  document.querySelectorAll('.faq-item').forEach(item => {
+    if (item !== faqItem) {
+      item.querySelector('.faq-question').classList.remove('active');
+      item.querySelector('.faq-answer').classList.remove('active');
+    }
+  });
+  
+  // Toggle current FAQ item
+  button.classList.toggle('active');
+  answer.classList.toggle('active');
+}
+
 // Enhanced Navigation Functions
 function toggleMenu() {
   const sliderMenu = document.querySelector('.slider-menu');

@@ -50,7 +50,7 @@
                   <li role="none"><a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a></li>
                   <li role="none"><a href="info.html?type=civil" role="menuitem">Цивільні справи</a></li>
                   <li role="none"><a href="info.html?type=family" role="menuitem">Сімейні справи</a></li>
-                  <li role="none"><a href="info.html?type=commerical" role="menuitem">Господарські справи</a></li>
+                  <li role="none"><a href="info.html?type=commercial" role="menuitem">Господарські справи</a></li>
                   <li role="none"><a href="info.html?type=labor" role="menuitem">Трудові справи</a></li>
                   <li role="none"><a href="info.html?type=credit" role="menuitem">Кредитні спори</a></li>
                   <li role="none"><a href="info.html?type=admin" role="menuitem">Адміністративні справи</a></li>
@@ -120,7 +120,7 @@
                 <a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a>
                 <a href="info.html?type=civil" role="menuitem">Цивільні справи</a>
                 <a href="info.html?type=family" role="menuitem">Сімейні справи</a>
-                <a href="info.html?type=commerical" role="menuitem">Господарські справи</a>
+                <a href="info.html?type=commercial" role="menuitem">Господарські справи</a>
                 <a href="info.html?type=labor" role="menuitem">Трудові справи</a>
                 <a href="info.html?type=credit" role="menuitem">Кредитні спори</a>
                 <a href="info.html?type=admin" role="menuitem">Адміністративні справи</a>
@@ -353,72 +353,6 @@
           </div>
         </section>
 
-        <!-- Consultation Modal -->
-        <div id="consultationModal" class="modal-overlay">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button class="modal-close" onclick="closeConsultationModal()">&times;</button>
-              <h3>Отримайте вирішення ваших питань вже сьогодні!</h3>
-              <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
-            </div>
-            <form class="modal-form" id="consultationForm">
-              <div class="form-row">
-                <input type="text" id="modalName" name="name" placeholder="Введіть ваше ім'я" required />
-                <input type="email" id="modalEmail" name="email" placeholder="example@email.com" required />
-              </div>
-              <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
-              <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
-              <p class="form-disclaimer">
-                Натискаючи кнопку «Надіслати», ви погоджуєтесь з 
-                <a href="#" onclick="showPrivacyPolicy()">політикою обробки персональних даних</a>
-              </p>
-              <button type="submit" class="modal-submit-btn">
-                <span class="btn-text">Надіслати</span>
-                <span class="btn-loading" style="display: none;">Надсилання...</span>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Success Modal -->
-        <div id="successModal" class="modal-overlay">
-          <div class="modal-content success-modal">
-            <div class="success-icon">
-              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <circle cx="30" cy="30" r="28" stroke="#06486d" stroke-width="2"/>
-                <path d="M20 30L27 37L40 24" stroke="#06486d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Дякуємо, заявку успішно подано!</h3>
-            <div class="success-details">
-              <p>Найближчим часом наш спеціаліст з Вами зв'яжиться.</p>
-              <p>У робочий час ми відповідаємо протягом 3х годин!</p>
-              <p><strong>Ми працюємо: Пн-Пт 10:00 - 18:00</strong></p>
-              <p>Якщо Ви залишили заявку у нерабочі часи, ми зв'яжемось з Вами наступного робочого дня з 10:00</p>
-            </div>
-            <button class="modal-submit-btn" onclick="closeSuccessModal()">Повернутись на головну</button>
-            <div class="contact-options">
-              <p>Ви також можете зв'язатись з нами через:</p>
-              <div class="social-icons">
-                <a href="https://t.me/+380674857400" target="_blank" aria-label="Telegram">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.75-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" fill="#06486d"/>
-                  </svg>
-                </a>
-                <a href="viber://chat?number=+380674857400" aria-label="Viber">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8h-2V7h2v2z" fill="#06486d"/>
-                  </svg>
-                </a>
-                <a href="https://www.instagram.com/gp.odessa_lawfirm/" target="_blank" aria-label="Instagram">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#06486d"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Consultation Modal -->
         <div id="consultationModal" class="modal-overlay">
@@ -432,39 +366,39 @@
                   <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
                 </div>
                 
-                <form class="new-modal-form" id="consultationForm">
-                  <div class="form-group">
-                    <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
-                  </div>
+                <div class="modal-form-container">
+                  <form class="new-modal-form" id="consultationForm">
+                    <div class="form-group">
+                      <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
+                    </div>
+                    
+                    <p class="new-form-disclaimer">
+                      Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
+                      <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
+                    </p>
+                    
+                    <button type="submit" class="new-modal-submit">
+                      <span class="btn-text">Надіслати</span>
+                      <span class="btn-loading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        Надсилання...
+                      </span>
+                    </button>
+                  </form>
                   
-                  <div class="form-group">
-                    <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
-                  </div>
-                  
-                  <div class="form-group">
-                    <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
-                  </div>
-                  
-                  <p class="new-form-disclaimer">
-                    Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
-                    <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
-                  </p>
-                  
-                  <button type="submit" class="new-modal-submit">
-                    <span class="btn-text">Надіслати</span>
-                    <span class="btn-loading" style="display: none;">
-                      <div class="loading-spinner"></div>
-                      Надсилання...
-                    </span>
-                  </button>
-                </form>
-              </div>
-              
-              <div class="modal-contact-icons">
+                  <div class="modal-contact-icons">
                 <a href="https://t.me/+380674857400" target="_blank" class="contact-icon telegram">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -482,6 +416,8 @@
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                 </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -613,7 +549,7 @@
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=commerical">
+                      <a href="info.html?type=commercial">
                         Господарські справи
                       </a>
                     </li>

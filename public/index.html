@@ -71,7 +71,7 @@
                   <li role="none"><a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a></li>
                   <li role="none"><a href="info.html?type=civil" role="menuitem">Цивільні справи</a></li>
                   <li role="none"><a href="info.html?type=family" role="menuitem">Сімейні справи</a></li>
-                  <li role="none"><a href="info.html?type=commerical" role="menuitem">Господарські справи</a></li>
+                  <li role="none"><a href="info.html?type=commercial" role="menuitem">Господарські справи</a></li>
                   <li role="none"><a href="info.html?type=labor" role="menuitem">Трудові справи</a></li>
                   <li role="none"><a href="info.html?type=credit" role="menuitem">Кредитні спори</a></li>
                   <li role="none"><a href="info.html?type=admin" role="menuitem">Адміністративні справи</a></li>
@@ -79,17 +79,17 @@
                 </ul>
               </li>
               <li role="none" class="dropdown">
-                <a href="#team-section" role="menuitem" aria-label="Перейти до секції команди" aria-haspopup="true" aria-expanded="false">
+                <a href="team.html" role="menuitem" aria-label="Перейти до секції команди" aria-haspopup="true" aria-expanded="false">
                   Команда
                   <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li role="none"><a href="company.html" role="menuitem">Про компанію</a></li>
-                  <li role="none"><a href="#team-section" role="menuitem">Наша команда</a></li>
-                  <li role="none"><a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a></li>
-                  <li role="none"><a href="#team-section" role="menuitem">Петрова Альона - Партнер</a></li>
-                  <li role="none"><a href="#team-section" role="menuitem">Бойко Анастасія - Партнер</a></li>
-                  <li role="none"><a href="#team-section" role="menuitem">Коротнян Павло - Партнер</a></li>
+                  <li role="none"><a href="team.html" role="menuitem">Наша команда</a></li>
+                  <li role="none"><a href="team-member-boyko-natalia.html" role="menuitem">Бойко Наталія - Керуючий партнер</a></li>
+                  <li role="none"><a href="team-member-petrova-aliona.html" role="menuitem">Петрова Альона - Партнер</a></li>
+                  <li role="none"><a href="team-member-boyko-anastasia.html" role="menuitem">Бойко Анастасія - Партнер</a></li>
+                  <li role="none"><a href="team-member-korotnian-pavlo.html" role="menuitem">Коротнян Павло - Партнер</a></li>
                 </ul>
               </li>
               <li role="none" class="dropdown">
@@ -141,7 +141,7 @@
                 <a href="info.html?type=criminal" role="menuitem">Кримінальні справи</a>
                 <a href="info.html?type=civil" role="menuitem">Цивільні справи</a>
                 <a href="info.html?type=family" role="menuitem">Сімейні справи</a>
-                <a href="info.html?type=commerical" role="menuitem">Господарські справи</a>
+                <a href="info.html?type=commercial" role="menuitem">Господарські справи</a>
                 <a href="info.html?type=labor" role="menuitem">Трудові справи</a>
                 <a href="info.html?type=credit" role="menuitem">Кредитні спори</a>
                 <a href="info.html?type=admin" role="menuitem">Адміністративні справи</a>
@@ -156,11 +156,11 @@
               </a>
               <div class="mobile-dropdown-content" id="team-dropdown">
                 <a href="company.html" role="menuitem">Про компанію</a>
-                <a href="#team-section" role="menuitem">Наша команда</a>
-                <a href="company.html#company-owner-section" role="menuitem">Бойко Наталія - Керуючий партнер</a>
-                <a href="#team-section" role="menuitem">Петрова Альона - Партнер</a>
-                <a href="#team-section" role="menuitem">Бойко Анастасія - Партнер</a>
-                <a href="#team-section" role="menuitem">Коротнян Павло - Партнер</a>
+                <a href="team.html" role="menuitem">Наша команда</a>
+                <a href="team-member-boyko-natalia.html" role="menuitem">Бойко Наталія - Керуючий партнер</a>
+                <a href="team-member-petrova-aliona.html" role="menuitem">Петрова Альона - Партнер</a>
+                <a href="team-member-boyko-anastasia.html" role="menuitem">Бойко Анастасія - Партнер</a>
+                <a href="team-member-korotnian-pavlo.html" role="menuitem">Коротнян Павло - Партнер</a>
               </div>
             </div>
             
@@ -256,102 +256,117 @@
           <div class="content-wrapper">
             <h2 class="services-heading slide-up">Наші послуги</h2>
             
-            <div class="more-services-flex">
-              <div class="service" onclick="goToInfo('criminal')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-                <div class="service-details">
-                  <h4>Кримінальне право</h4>
-                  <p>Представницво у межах досудового розслідування та інше</p>
+            <div class="services-grid">
+              <!-- Row 1 -->
+              <div class="service-card service-card-dark" onclick="goToInfo('criminal')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Кримінальне право</h4>
+                <p>Представницво у межах досудового розслідування та інше</p>
+                <div class="service-arrow">→</div>
               </div>
               
-              <div class="service" onclick="goToInfo('civil')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                </svg>
-                <div class="service-details">
-                  <h4>Цивільні справи</h4>
-                  <p>Визнання договору недійсним, розірвання договору</p>
+              <div class="service-card service-card-light" onclick="goToInfo('civil')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Цивільні справи</h4>
+                <p>Визнання договору недійсним, розірвання договору</p>
+                <div class="service-arrow">→</div>
               </div>
               
-              <div class="service" onclick="goToInfo('family')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-                <div class="service-details">
-                  <h4>Сімейні справи</h4>
-                  <p>Розірвання шлюбу, поділ майна подружжя та інше</p>
+              <div class="service-card service-card-dark" onclick="goToInfo('family')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Сімейні справи</h4>
+                <p>Розірвання шлюбу, поділ майна подружжя та інше</p>
+                <div class="service-arrow">→</div>
               </div>
               
-              <div class="service" onclick="goToInfo('commerical')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-6.75 4.5h6.75m-6.75 4.5h6.75m-6.75 4.5h6.75" />
-                </svg>
-                <div class="service-details">
-                  <h4>Господарські справи</h4>
-                  <p>Супровід підприємства під час ведення господарської діяльності</p>
+              <!-- Row 2 -->
+              <div class="service-card service-card-light" onclick="goToInfo('commercial')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Господарські справи</h4>
+                <p>Супровід підприємства під час ведення господарської діяльності</p>
+                <div class="service-arrow">→</div>
               </div>
               
-              <div class="service" onclick="goToInfo('labor')">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="service-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                
-                <div class="service-details">
-                  <h4>Трудові спори</h4>
-                  <p>Юридичний супровід трудових спорів та інше</p>
+              <div class="service-card service-card-dark" onclick="goToInfo('labor')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Трудові спори</h4>
+                <p>Юридичний супровід трудових спорів та інше</p>
+                <div class="service-arrow">→</div>
               </div>
               
-              <div class="service" onclick="goToInfo('credit')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                </svg>
-                <div class="service-details">
-                  <h4>Кредитні спори</h4>
-                  <p>Списання незаконно нарахованих штрафів та відсотків по кредиту</p>
+              <div class="service-card service-card-light" onclick="goToInfo('credit')">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"/>
+                    <path d="M5 21V7l8-4v18"/>
+                    <path d="M19 21V11l-6-4"/>
+                    <path d="M9 9v.01"/>
+                    <path d="M9 12v.01"/>
+                    <path d="M9 15v.01"/>
+                    <path d="M9 18v.01"/>
+                  </svg>
                 </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
-              </div>
-              
-              <div class="service" onclick="goToInfo('admin')">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="service-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75" />
-                </svg>
-                
-                <div class="service-details">
-                  <h4>Адміністративні спори</h4>
-                  <p>Оскарження рішень, дій та бездіяльності суб'єктів владних повноважень</p>
-                </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
-              </div>
-              
-              <div class="service" onclick="goToInfo('business')">
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-                <div class="service-details">
-                  <h4>Захист бізнесу</h4>
-                  <p>Комплексне абонентське обслуговування бізнесу та інше</p>
-                </div>
-                <ion-icon name="arrow-forward-outline" class="service-arrow"></ion-icon>
+                <h4>Кредитні спори</h4>
+                <p>Списання незаконно нарахованих штрафів та відсотків по кредиту</p>
+                <div class="service-arrow">→</div>
               </div>
             </div>
             
-            <a href="info.html" class="btn-wc">
-              Дізнатись більше
-              <ion-icon name="arrow-forward-outline" class="button-arrow"></ion-icon>
-            </a>
+            <div class="learn-more-container">
+              <a href="info.html" class="learn-more-btn">
+                Дізнатись більше →
+              </a>
+            </div>
           </div>
         </section>
 
@@ -365,7 +380,7 @@
             
             <div class="team-nav-container">
               <div class="team-wrapper">
-                <div class="team-member-card">
+                <div class="team-member-card" onclick="window.location.href='team-member-boyko-natalia.html'" style="cursor: pointer;">
                   <img src="./images/team/team_1.png" alt="Бойко Наталія - Керуючий партнер" />
                   <div class="team-text">
                     <h4>Бойко Наталія</h4>
@@ -373,7 +388,7 @@
                   </div>
                 </div>
                 
-                <div class="team-member-card">
+                <div class="team-member-card" onclick="window.location.href='team-member-petrova-aliona.html'" style="cursor: pointer;">
                   <img src="./images/team/team_2.png" alt="Петрова Альона - Партнер" />
                   <div class="team-text">
                     <h4>Петрова Альона</h4>
@@ -381,7 +396,7 @@
                   </div>
                 </div>
                 
-                <div class="team-member-card">
+                <div class="team-member-card" onclick="window.location.href='team-member-boyko-anastasia.html'" style="cursor: pointer;">
                   <img src="./images/team/team_3.png" alt="Бойко Анастасія - Партнер" />
                   <div class="team-text">
                     <h4>Бойко Анастасія</h4>
@@ -389,8 +404,8 @@
                   </div>
                 </div>
                 
-                <div class="team-member-card">
-                  <img src="./images/team/team_4.png" alt="Воронюк Максим - Партнер" />
+                <div class="team-member-card" onclick="window.location.href='team-member-korotnian-pavlo.html'" style="cursor: pointer;">
+                  <img src="./images/team/team_4.png" alt="Коротнян Павло - Партнер" />
                   <div class="team-text">
                     <h4>Коротнян Павло</h4>
                     <p>Партнер</p>
@@ -404,81 +419,108 @@
                 <ion-icon name="chevron-forward-outline" aria-label="Наступний"></ion-icon>
               </div>
             </div>
+            
+            <!-- More Information Button -->
+            <div class="team-more-info-container">
+              <a href="team.html" class="team-more-info-button">
+                <span>Дізнатися більше про команду</span>
+                <ion-icon name="arrow-forward-outline" class="team-arrow-icon"></ion-icon>
+              </a>
+            </div>
           </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq-container" class="faq-section">
           <div class="content-wrapper">
-            <h2 class="services-heading">Поширені запитання</h2>
+            <div class="faq-header">
+              <h2 class="services-heading">Поширені запитання</h2>
+              <p class="faq-subtitle">Знайдіть відповіді на найчастіші питання наших клієнтів</p>
+            </div>
             
-            <ul class="faq-list">
-              <li class="faq-item">
-                <div class="question">
+            <div class="faq-container">
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
                   <span class="question-text">Як укласти договір з АО "Грищенко та партнери Одеса"?</span>
-                  <span class="icon">
-                    <ion-icon name="chevron-down-sharp"></ion-icon>
+                  <span class="faq-icon">
+                    <ion-icon name="chevron-down-outline"></ion-icon>
                   </span>
+                </button>
+                <div class="faq-answer">
+                  <div class="answer-content">
+                    <p>Основою роботи між адвокатом та клієнтом є - договір, що надає адвокату законних підстав бути вашим представником. Відповідно до ч.1 ст. 26 Закону України "Про адвокатуру та адвокатську діяльність", договір про надання правової допомоги укладається в письмовій формі.</p>
+                    <p>При цьому він може вчинятись усно у випадку надання консультацій записом про це у журналі або якщо клієнт потребує невідкладно надання правової допомоги - з подальшим укладанням договору в письмовій формі у найближчий можливий строк.</p>
+                    <p>Однак нова реальність потребує можливості укладання даної угоди за територіальної відсутності клієнта поруч з адвокатом. У зв'язку з цим Адвокатське об'єднання "Грищенко та партнери Одеса" надає своїм клієнтам можливість укладати такі договори дистанційно.</p>
+                  </div>
                 </div>
-                <div class="answer">
-                  <span>
-                    Основою роботи між адвокатом та клієнтом є - договір, що надає адвокату законних підстав бути вашим представником. Відповідно до ч.1 ст. 26 Закону України "Про адвокатуру та адвокатську діяльність", договір про надання правової допомоги укладається в письмовій формі. При цьому він може вчинятись усно у випадку надання консультацій записом про це у журналі або якщо клієнт потребує невідкладно надання правової допомоги - з подальшим укладанням договору в письмовій формі у найближчий можливий строк.
-                    <br /><br />
-                    Однак нова реальність потребує можливості укладання даної угоди за територіальної відсутності клієнта поруч з адвокатом. У зв'язку з цим Адвокатське об'єднання "Грищенко та партнери Одеса" надає своїм клієнтам можливість укладати такі договори дистанційно.
-                  </span>
-                </div>
-              </li>
+              </div>
               
-              <li class="faq-item">
-                <div class="question">
-                  <span class="question-text">Що таке спільне майно?</span>
-                  <span class="icon">
-                    <ion-icon name="chevron-down-sharp"></ion-icon>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                  <span class="question-text">Які ризики варто врахувати при співпраці з партнерами чи підрядниками?</span>
+                  <span class="faq-icon">
+                    <ion-icon name="chevron-down-outline"></ion-icon>
                   </span>
+                </button>
+                <div class="faq-answer">
+                  <div class="answer-content">
+                    <p>Співпраця з новими партнерами чи підрядниками завжди супроводжується певними ризиками. Найпоширеніші з них:</p>
+                    <ul class="faq-list">
+                      <li><strong>Неналежне виконання зобов'язань</strong> – затримка термінів, постачання неякісної продукції чи відмова від виконання договору.</li>
+                      <li><strong>Фінансові ризики</strong> – несвоєчасна оплата, банкрутство контрагента або шахрайські дії.</li>
+                      <li><strong>Правові ризики</strong> – відсутність договору або нечіткі умови, що створюють ґрунт для спорів.</li>
+                      <li><strong>Репутаційні наслідки</strong> – недобросовісна діяльність партнера може негативно відобразитися на вашому бізнесі.</li>
+                      <li><strong>Податкові та регуляторні проблеми</strong> – робота з контрагентами, які порушують законодавство, може спричинити санкції й для вашої компанії.</li>
+                    </ul>
+                    <p>Щоб знизити ці ризики, радимо проводити юридичний аудит партнера, перевіряти його фінансову та податкову історію, а також укладати договори з чітким визначенням обов'язків, строків та відповідальності сторін.</p>
+                  </div>
                 </div>
-                <div class="answer">
-                  <span>
-                    Це означає, що все, чим обидва подружжя володіють, може бути класифіковано і юридично характеризується як «спільно нажите майно подружжя» або «особисте майно». Законодавство України передбачає, що кожен із подружжя має право на отримання половини із загальної власності.
-                    <br /><br />
-                    Спільним є все майно, розташоване в межах або за межами України, яке Ви або Ваш чоловік придбали під час шлюбу, за винятком придбаного в дар, отриманого в спадщину або приватизованого майна і т.п. Кожен із подружжя має право і на половину всього майна, яке буде розділене між сторонами в ході розгляду про розподіл майна, а також беруться до уваги борги і зобов'язання, щоб створити рівні умови поділу спільного майна.
-                    <br /><br />
-                    Будь-який шлюбний договір повинен бути ретельно вивчений, так як він може анулювати або зменшити майнові інтереси.
-                  </span>
-                </div>
-              </li>
+              </div>
               
-              <li class="faq-item">
-                <div class="question">
-                  <span class="question-text">Як визначається сума аліментів?</span>
-                  <span class="icon">
-                    <ion-icon name="chevron-down-sharp"></ion-icon>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                  <span class="question-text">Що робити, якщо ваш бізнес отримав позов?</span>
+                  <span class="faq-icon">
+                    <ion-icon name="chevron-down-outline"></ion-icon>
                   </span>
+                </button>
+                <div class="faq-answer">
+                  <div class="answer-content">
+                    <p>Отримання позову від клієнта, партнера чи державного органу – це серйозна ситуація, яка потребує швидкої реакції. Насамперед не ігноруйте документи з суду. Зберіть усі докази та зверніться до адвоката для аналізу ситуації та вибору стратегії захисту.</p>
+                    <p>У багатьох випадках спір можна вирішити ще до судового засідання. Рекомендуємо:</p>
+                    <ul class="faq-list">
+                      <li>Уважно прочитати позов і зафіксувати всі терміни реагування.</li>
+                      <li>Зібрати договори, акти, платіжні документи та листування, пов'язані зі справою.</li>
+                      <li>Негайно звернутися до адвоката для оцінки перспектив справи.</li>
+                      <li>Обговорити можливість мирного врегулювання спору ще до суду.</li>
+                      <li>У разі необхідності – підготувати детальну правову позицію та докази для захисту в суді.</li>
+                    </ul>
+                    <p>Своєчасна реакція дозволяє мінімізувати ризики та захистити інтереси бізнесу.</p>
+                  </div>
                 </div>
-                <div class="answer">
-                  <span>
-                    Сума аліментів визначається судом з урахуванням матеріального та сімейного стану платника та одержувача аліментів, а також інших обставин, що заслуговують на увагу. Аліменти можуть стягуватися у частці від заробітку (доходу) платника аліментів або у твердій грошовій сумі.
-                    <br /><br />
-                    При визначенні розміру аліментів суд враховує: доходи платника аліментів, кількість дітей, які потребують утримання, матеріальний стан одержувача аліментів, інші обставини, що заслуговують на увагу.
-                  </span>
-                </div>
-              </li>
+              </div>
               
-              <li class="faq-item">
-                <div class="question">
-                  <span class="question-text">Як визначається опіка та догляд за дітьми?</span>
-                  <span class="icon">
-                    <ion-icon name="chevron-down-sharp"></ion-icon>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                  <span class="question-text">Чому варто реєструвати торгову марку?</span>
+                  <span class="faq-icon">
+                    <ion-icon name="chevron-down-outline"></ion-icon>
                   </span>
+                </button>
+                <div class="faq-answer">
+                  <div class="answer-content">
+                    <p>Торгова марка – це не лише логотип чи назва, а цінний актив вашого бізнесу. Реєстрація ТМ дає низку переваг:</p>
+                    <ul class="faq-list">
+                      <li>Ви отримуєте виключне право використовувати бренд у своїй діяльності.</li>
+                      <li>Можете забороняти іншим використовувати подібні назви чи логотипи.</li>
+                      <li>Захищаєте бізнес від недобросовісної конкуренції.</li>
+                      <li>Підвищуєте вартість компанії – зареєстрована ТМ може бути об'єктом продажу, франчайзингу чи ліцензування.</li>
+                    </ul>
+                    <p>Без офіційної реєстрації будь-хто може скористатися вашим брендом, і довести право власності буде набагато складніше.</p>
+                  </div>
                 </div>
-                <div class="answer">
-                  <span>
-                    Питання про те, з ким із батьків буде проживати дитина після розірвання шлюбу, вирішується судом з урахуванням інтересів дитини та з урахуванням думки дитини, якщо вона досягла такого віку, що може її висловити. Суд враховує: вік дитини, стан здоров'я дитини, звички дитини, можливості батьків забезпечити належне виховання та розвиток дитини, інші обставини, що заслуговують на увагу.
-                    <br /><br />
-                    При вирішенні питання про місце проживання дитини суд також враховує: якість стосунків між батьками та дитиною, можливості батьків забезпечити належні умови для виховання та розвитку дитини, інші обставини, що характеризують обстановку, яка склалася в місці проживання кожного з батьків.
-                  </span>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -610,39 +652,39 @@
                   <p>Залиште заявку і ми перетелефонуємо Вам впродовж 3х робочих годин</p>
                 </div>
                 
-                <form class="new-modal-form" id="consultationForm">
-                  <div class="form-group">
-                    <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
-                  </div>
+                <div class="modal-form-container">
+                  <form class="new-modal-form" id="consultationForm">
+                    <div class="form-group">
+                      <input type="text" id="modalName" name="name" placeholder="Ім'я" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
+                    </div>
+                    
+                    <p class="new-form-disclaimer">
+                      Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
+                      <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
+                    </p>
+                    
+                    <button type="submit" class="new-modal-submit">
+                      <span class="btn-text">Надіслати</span>
+                      <span class="btn-loading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        Надсилання...
+                      </span>
+                    </button>
+                  </form>
                   
-                  <div class="form-group">
-                    <input type="tel" id="modalPhone" name="phone" placeholder="+380" required />
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="email" id="modalEmail" name="email" placeholder="Електронна пошта" required />
-                  </div>
-                  
-                  <div class="form-group">
-                    <textarea id="modalMessage" name="message" placeholder="У вирішенні якого питання Вам необхідна допомога?" required></textarea>
-                  </div>
-                  
-                  <p class="new-form-disclaimer">
-                    Натискаючи кнопку «Записатись на консультацію», ви погоджуєтесь з 
-                    <a href="privacy-policy.html" target="_blank">політикою обробки персональних даних</a>
-                  </p>
-                  
-                  <button type="submit" class="new-modal-submit">
-                    <span class="btn-text">Надіслати</span>
-                    <span class="btn-loading" style="display: none;">
-                      <div class="loading-spinner"></div>
-                      Надсилання...
-                    </span>
-                  </button>
-                </form>
-              </div>
-              
-              <div class="modal-contact-icons">
+                  <div class="modal-contact-icons">
                 <a href="https://t.me/+380674857400" target="_blank" class="contact-icon telegram">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -660,6 +702,8 @@
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                 </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -780,7 +824,7 @@
                   </li>
                   <li>
                     <span>›</span>
-                    <a href="info.html?type=commerical">Господарські справи</a>
+                    <a href="info.html?type=commercial">Господарські справи</a>
                   </li>
                   <li>
                     <span>›</span>
