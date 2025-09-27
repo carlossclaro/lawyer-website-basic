@@ -2,6 +2,7 @@
 function toggleFAQ(button) {
   const faqItem = button.closest('.faq-item');
   const answer = faqItem.querySelector('.faq-answer');
+  const icon = button.querySelector('.faq-icon');
   const isActive = button.classList.contains('active');
   
   // Close all other FAQ items
@@ -9,12 +10,20 @@ function toggleFAQ(button) {
     if (item !== faqItem) {
       item.querySelector('.faq-question').classList.remove('active');
       item.querySelector('.faq-answer').classList.remove('active');
+      item.querySelector('.faq-icon').textContent = '+';
     }
   });
   
   // Toggle current FAQ item
   button.classList.toggle('active');
   answer.classList.toggle('active');
+  
+  // Update icon
+  if (button.classList.contains('active')) {
+    icon.textContent = '-';
+  } else {
+    icon.textContent = '+';
+  }
 }
 
 // Enhanced Navigation Functions
@@ -326,6 +335,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Get form data
       const formData = new FormData(this);
+      
+      // Combine phone code and number
+      const phoneCode = document.getElementById('modalPhoneCode')?.value || '+380';
+      const phoneNumber = document.getElementById('modalPhone')?.value || '';
+      const fullPhone = phoneCode + phoneNumber;
+      
+      // Update form data with combined phone
+      formData.set('phone', fullPhone);
       
       // Show loading state
       submitBtn.disabled = true;

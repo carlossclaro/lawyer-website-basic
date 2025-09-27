@@ -751,18 +751,18 @@ button[type="submit"]:hover {
 
 #footer .footer-top {
   background: #111;
-  padding: 60px 0 30px 0;
+  padding: 2rem 0 1.5rem; /* Match the compact styles from styles.css */
 }
 
 #footer .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 2rem; /* Reduced from 30px to match styles.css */
   padding: 0 20px;
 }
 
 #footer .footer-top .footer-info {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem; /* Reduced from 30px */
 }
 
 #footer .footer-top .footer-info h3 {
@@ -834,7 +834,7 @@ button[type="submit"]:hover {
 }
 
 #footer .footer-top .footer-links {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem; /* Reduced from 30px */
 }
 
 #footer .footer-top .footer-links ul {
@@ -850,7 +850,7 @@ button[type="submit"]:hover {
 
 #footer .footer-top .footer-links ul li {
   border-bottom: 1px solid #333;
-  padding: 10px 0;
+  padding: 0.25rem 0; /* Reduced from 10px 0 to match styles.css */
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -866,7 +866,7 @@ button[type="submit"]:hover {
 }
 
 #footer .footer-top .footer-contact {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem; /* Reduced from 30px */
 }
 
 #footer .footer-top .footer-contact p {
@@ -875,7 +875,7 @@ button[type="submit"]:hover {
 }
 
 #footer .footer-top .footer-newsletter {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem; /* Reduced from 30px */
 }
 
 #footer .footer-top .footer-newsletter input[type="email"] {
@@ -901,7 +901,7 @@ button[type="submit"]:hover {
 
 #footer .footer-bottom {
   background: #111;
-  padding: 20px;
+  padding: 1.5rem; /* Reduced from 20px to match styles.css */
   text-align: center;
   font-size: 14px;
   color: #aaa;
@@ -1301,7 +1301,7 @@ button[type="submit"]:hover {
   }
 
   #footer .footer-top {
-    padding: 10px 0;
+    padding: 1rem 0 0.75rem; /* Match the compact mobile styles */
   }
   .footer-box .footer-contact h4{
     font-size: 1.5rem;
@@ -1329,7 +1329,7 @@ button[type="submit"]:hover {
     margin: 0 auto;
   }
   .footer-bottom {
-    padding: 20px;
+    padding: 1.5rem; /* Reduced from 20px to match styles.css */
     text-align: center;
     font-size: 14px;
     color: #aaa;
