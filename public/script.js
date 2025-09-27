@@ -772,4 +772,50 @@ function scrollToNextSection() {
   }
 }
 
+// Scroll Animation Functions
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('.scroll-animate, .scroll-animate-fade, .scroll-animate-slide-left, .scroll-animate-slide-right, .scroll-animate-scale');
+  
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  // Mobile detection
+  const isMobile = window.innerWidth <= 768;
+  
+  // Create intersection observer with mobile-optimized settings
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Reduced delay on mobile for better performance
+        const delay = isMobile ? 50 : 100;
+        
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, delay);
+      }
+    });
+  }, {
+    threshold: isMobile ? 0.05 : 0.1, // Lower threshold on mobile for earlier triggering
+    rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px' // Less margin on mobile
+  });
+
+  // Observe all animated elements
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+  
+  // Handle reduced motion preference
+  if (prefersReducedMotion) {
+    // Immediately show all elements without animation
+    animatedElements.forEach(element => {
+      element.classList.add('animate-in');
+    });
+  }
+}
+
+// Initialize scroll animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initScrollAnimations();
+});
+
 

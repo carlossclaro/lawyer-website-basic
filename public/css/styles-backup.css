@@ -4526,6 +4526,7 @@ a:focus {
   text-align: right;
   margin-top: 2rem;
   width: fit-content;
+  max-width: 300px;
   margin-left: auto;
 }
 
@@ -4598,26 +4599,23 @@ a:focus {
 }
 
 .why-choose-section .benefits-list li {
-  padding: 1rem 0 1rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
   border-bottom: 1px solid #e9ecef;
-  position: relative;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 .why-choose-section .benefits-list li:last-child {
   border-bottom: none;
 }
 
-.why-choose-section .benefits-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  top: 1rem;
+.why-choose-section .benefits-list .arrow {
   color: var(--accent-color);
-  font-weight: bold;
   font-size: 1.2rem;
-  line-height: 1;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 .why-choose-section .conclusion {
@@ -4813,7 +4811,7 @@ a:focus {
   
   /* About Section Mobile */
   .company-page .about-section {
-    padding: 3rem;
+    padding: 3rem 1.5rem;
     margin-top: 0;
   }
   
@@ -4861,6 +4859,7 @@ a:focus {
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   }
   
   .owner-image img {
@@ -4891,9 +4890,10 @@ a:focus {
     text-align: center;
     margin-top: 1.5rem;
     width: 100%;
-   
+    background: var(--white);
+    padding: 2rem;
     border-radius: 16px;
-  
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   }
   
   .owner-info h4 {
@@ -4930,9 +4930,12 @@ a:focus {
   }
   
   .why-choose-section .benefits-list li {
-    padding: 1rem 0 1rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+    padding: 1rem 0;
     border-bottom: 1px solid #e9ecef;
-    position: relative;
     font-size: 1rem;
     line-height: 1.6;
   }
@@ -4941,15 +4944,12 @@ a:focus {
     border-bottom: none;
   }
   
-  .why-choose-section .benefits-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    top: 1rem;
+  .why-choose-section .benefits-list .arrow {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
     color: var(--accent-color);
     font-weight: bold;
     font-size: 1.1rem;
-    line-height: 1;
   }
   
   .why-choose-section .conclusion {
@@ -4987,7 +4987,9 @@ a:focus {
     min-width: 200px;
     max-width: 200px;
     padding: 1.5rem 1rem;
-
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     text-align: center;
     transition: transform 0.3s ease;
   }
@@ -5078,7 +5080,7 @@ a:focus {
   
   /* About Section Small Mobile */
   .company-page .about-section {
-    padding: 0 0.5rem 2rem 0.5rem !important;
+    padding: 2rem 0.5rem 1rem 0.5rem;
   }
   
   .company-page .about-section h2 {
@@ -5149,20 +5151,9 @@ a:focus {
   }
   
   .why-choose-section .benefits-list li {
-    padding: 0.5rem 0 0.5rem 1.2rem;
+    padding: 0.5rem 0;
     font-size: 0.85rem;
-    position: relative;
-  }
-  
-  .why-choose-section .benefits-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 1;
+    gap: 0.5rem;
   }
   
   .why-choose-section .conclusion {
@@ -5178,6 +5169,7 @@ a:focus {
   
   .awards-container {
     gap: 0.25rem;
+    padding: 0.25rem 0 0.5rem 0;
   }
   
   .award-item {
@@ -5833,7 +5825,7 @@ html {
   
   /* Ensure proper spacing for mobile */
   .about-section {
-    padding-top: 0;
+    padding-top: 3rem;
   }
   
   /* Mobile responsive for highlights */
@@ -6727,7 +6719,6 @@ body.bg-white {
 /* Responsive styles for company hero stats */
 @media (max-width: 768px) {
   .company-hero-stats {
-    display:none;
     width: 90%;
     max-width: 600px;
     padding: 1.5rem 2rem;
