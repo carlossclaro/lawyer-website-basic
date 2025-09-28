@@ -235,12 +235,12 @@ a:hover {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  padding: 0.75rem;
+  
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3554,8 +3554,8 @@ body.privacy-page .mobile-dropdown-content a:hover {
   }
   
   .nav-bar-container {
-    padding: 0.75rem 10px;
-    height: 70px;
+    padding: 0.3rem 10px;
+    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -3603,17 +3603,17 @@ body.privacy-page .mobile-dropdown-content a:hover {
   }
   
   .logo {
-    height: 40px;
+    height: 35px;
   }
   
   .mobile-nav-logo {
-    height: 40px;
+    height: 35px;
   }
   
   .hero-section {
     height: 100vh;
     min-height: 100vh;
-    padding-top: 70px; /* Space for mobile navbar */
+    padding-top: 45px; /* Space for mobile navbar */
   }
   
   .image-with-text {
@@ -3758,7 +3758,7 @@ body.privacy-page .mobile-dropdown-content a:hover {
 
 @media (max-width: 480px) {
   html {
-    scroll-padding-top: 60px; /* Match smaller mobile navigation bar height */
+    scroll-padding-top: 40px; /* Match smaller mobile navigation bar height */
   }
   
   .content-wrapper {
@@ -3815,8 +3815,8 @@ body.privacy-page .mobile-dropdown-content a:hover {
   }
   
   .nav-bar-container {
-    padding: 0.5rem 10px;
-    height: 60px;
+    padding: 0.4rem 10px;
+    height: 40px;
   }
   
   .logo {
@@ -4948,7 +4948,7 @@ a:focus {
   /* About Section Mobile */
   .company-page .about-section {
     padding: 3rem 1rem !important;
-    margin-top: 0;
+    margin-top: 4rem !important;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   }
   
@@ -5397,6 +5397,7 @@ a:focus {
   /* About Section Small Mobile */
   .company-page .about-section {
     padding: 2rem 1rem !important;
+    margin-top: 3rem !important;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   }
   
@@ -6156,7 +6157,7 @@ html {
     min-height: 100vh;
     margin-bottom: 0;
     flex-direction: column;
-    padding-top: 70px; /* Space for mobile navbar */
+    padding-top: 45px; /* Space for mobile navbar */
   }
   
   .image-with-text {
@@ -6538,7 +6539,7 @@ html {
   
   .number {
     width: 50px;
-    height: 50px;
+    height: 40px;
     font-size: 1.2rem;
   }
   
@@ -6666,7 +6667,7 @@ html {
   }
   
   .logo {
-    height: 50px;
+    height: 40px;
   }
   
   .slider-menu {
@@ -6827,7 +6828,7 @@ html {
 
 @media (max-width: 480px) {
   html {
-    scroll-padding-top: 60px; /* Match smaller mobile navigation bar height */
+    scroll-padding-top: 40px; /* Match smaller mobile navigation bar height */
   }
   
   .content-wrapper {
@@ -6884,8 +6885,8 @@ html {
   }
   
   .nav-bar-container {
-    padding: 0.5rem 10px;
-    height: 60px;
+    padding: 0.4rem 10px;
+    height: 40px;
   }
   
   .logo {
@@ -7420,6 +7421,266 @@ body.bg-white {
   .scroll-animate-scale {
     transition: opacity 0.3s ease;
     transform: none !important;
+  }
+}
+
+/* Redesigned Modal Base Styles */
+.redesigned-modal-container {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.redesigned-modal-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 0;
+}
+
+.modal-main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modal-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(166, 157, 132, 0.05) 0%, rgba(166, 157, 132, 0.1) 100%);
+  border-left: 1px solid rgba(166, 157, 132, 0.2);
+  min-width: 200px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.sidebar-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-icon:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Sidebar Positioning for Consultation Modal */
+@media (max-width: 768px) {
+  /* Make modal scrollable on mobile */
+  .redesigned-modal-container {
+    max-height: 95vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    width: 95%;
+    margin: 2.5vh auto;
+  }
+  
+  .redesigned-modal-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .modal-main-content {
+    width: 100%;
+    padding: 1.5rem;
+    padding-top: 4rem;
+    flex: none;
+  }
+  
+  /* Hide desktop sidebar completely on mobile */
+  .desktop-sidebar {
+    display: none !important;
+  }
+  
+  /* Mobile sidebar - full width background */
+  .mobile-sidebar {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(166, 157, 132, 0.08) 0%, rgba(166, 157, 132, 0.15) 100%);
+    border-top: 2px solid rgba(166, 157, 132, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  /* Position close button at top-right of modal on mobile */
+  .redesigned-modal-container .modal-close-btn {
+    position: absolute;
+  margin-bottom: 1rem;
+    right: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+
+  }
+  
+  .redesigned-modal-container .modal-close-btn:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+  }
+  
+  .mobile-sidebar .sidebar-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .mobile-sidebar .sidebar-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(166, 157, 132, 0.3);
+  }
+  
+  .mobile-sidebar .sidebar-icon:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(166, 157, 132, 0.4);
+  }
+  
+  /* Ensure close button is visible on mobile */
+  .modal-close-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile sidebar completely on desktop */
+  .mobile-sidebar {
+    display: none !important;
+  }
+  
+  /* Show desktop sidebar on desktop */
+  .desktop-sidebar {
+    display: flex !important;
+  }
+  
+  /* Ensure modal is not scrollable on desktop */
+  .redesigned-modal-container {
+    max-height: 90vh;
+    overflow: hidden;
+  }
+  
+  /* Desktop modal layout */
+  .redesigned-modal-content {
+    flex-direction: row;
+  }
+  
+  .modal-main-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .modal-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(166, 157, 132, 0.05) 0%, rgba(166, 157, 132, 0.1) 100%);
+    border-left: 1px solid rgba(166, 157, 132, 0.2);
+    min-width: 200px;
+  }
+  
+  .sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .sidebar-icon {
+    width: 60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-icon:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 }
 
