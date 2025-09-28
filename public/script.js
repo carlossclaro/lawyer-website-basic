@@ -1,3 +1,167 @@
+// Awards Carousel Functions
+let currentAwardIndex = 0;
+const totalAwards = 7;
+
+function getAwardsPerView() {
+  if (window.innerWidth >= 769) return 3; // Desktop: 3 awards
+  if (window.innerWidth >= 481) return 2; // Tablet: 2 awards  
+  return 1; // Mobile: 1 award
+}
+
+function getTotalSlides() {
+  const awardsPerView = getAwardsPerView();
+  const totalSlides = Math.ceil(totalAwards / awardsPerView);
+  return Math.max(1, totalSlides); // Ensure at least 1 slide
+}
+
+// Initialize carousel on page load
+function initializeCarousel() {
+  const awardsContainer = document.querySelector('.awards-container');
+  const dotsContainer = document.querySelector('.award-dots');
+  
+  if (!awardsContainer || !dotsContainer) return;
+  
+  // Reset to first slide with proper centering
+  currentAwardIndex = 0;
+  
+  // Calculate initial centering
+  const awardsPerView = getAwardsPerView();
+  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
+  const gap = 32; // 2rem gap
+  const totalItemWidth = itemWidth + gap;
+  
+  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
+  const slideWidth = totalItemWidth * awardsPerView;
+  const centerOffset = (wrapperWidth - slideWidth) / 2;
+  
+  awardsContainer.style.transform = `translateX(${centerOffset}px)`;
+  
+  // Calculate correct number of slides and create dots
+  const totalSlides = getTotalSlides();
+  
+  // Clear existing dots
+  dotsContainer.innerHTML = '';
+  
+  // Create correct number of dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    if (i === 0) dot.classList.add('active');
+    dot.onclick = () => currentAward(i + 1);
+    dotsContainer.appendChild(dot);
+  }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeCarousel);
+
+// Reinitialize on window resize
+window.addEventListener('resize', () => {
+  setTimeout(initializeCarousel, 100); // Small delay to ensure proper calculation
+});
+
+function changeAward(direction) {
+  const awardsContainer = document.querySelector('.awards-container');
+  const dots = document.querySelectorAll('.dot');
+  const totalSlides = getTotalSlides();
+  
+  // Remove active class from current dot
+  if (dots[currentAwardIndex]) {
+    dots[currentAwardIndex].classList.remove('active');
+  }
+  
+  // Calculate new index with proper bounds checking
+  const newIndex = currentAwardIndex + direction;
+  
+  // Only allow navigation within valid bounds
+  if (newIndex >= 0 && newIndex < totalSlides) {
+    currentAwardIndex = newIndex;
+  } else if (newIndex >= totalSlides) {
+    // If trying to go beyond last slide, reset to first
+    currentAwardIndex = 0;
+  } else if (newIndex < 0) {
+    // If trying to go before first slide, go to last
+    currentAwardIndex = totalSlides - 1;
+  }
+  
+  // Calculate transform value with proper centering
+  const awardsPerView = getAwardsPerView();
+  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
+  const gap = 32; // 2rem gap
+  const totalItemWidth = itemWidth + gap;
+  
+  // Calculate the offset to center the current slide
+  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
+  const slideWidth = totalItemWidth * awardsPerView;
+  const centerOffset = (wrapperWidth - slideWidth) / 2;
+  
+  const translateX = -(currentAwardIndex * totalItemWidth * awardsPerView) + centerOffset;
+  awardsContainer.style.transform = `translateX(${translateX}px)`;
+  
+  // Add active class to new dot
+  if (dots[currentAwardIndex]) {
+    dots[currentAwardIndex].classList.add('active');
+  }
+}
+
+function currentAward(index) {
+  const awardsContainer = document.querySelector('.awards-container');
+  const dots = document.querySelectorAll('.dot');
+  
+  // Remove active class from current dot
+  if (dots[currentAwardIndex]) {
+    dots[currentAwardIndex].classList.remove('active');
+  }
+  
+  // Set new index (index is 1-based, so subtract 1)
+  currentAwardIndex = index - 1;
+  
+  // Ensure index is within bounds
+  const totalSlides = getTotalSlides();
+  if (currentAwardIndex >= totalSlides) {
+    currentAwardIndex = totalSlides - 1;
+  } else if (currentAwardIndex < 0) {
+    currentAwardIndex = 0;
+  }
+  
+  // Calculate transform value with proper centering
+  const awardsPerView = getAwardsPerView();
+  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
+  const gap = 32; // 2rem gap
+  const totalItemWidth = itemWidth + gap;
+  
+  // Calculate the offset to center the current slide
+  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
+  const slideWidth = totalItemWidth * awardsPerView;
+  const centerOffset = (wrapperWidth - slideWidth) / 2;
+  
+  const translateX = -(currentAwardIndex * totalItemWidth * awardsPerView) + centerOffset;
+  awardsContainer.style.transform = `translateX(${translateX}px)`;
+  
+  // Add active class to new dot
+  if (dots[currentAwardIndex]) {
+    dots[currentAwardIndex].classList.add('active');
+  }
+}
+
+// Auto-rotate awards every 5 seconds (only if carousel is properly initialized)
+let autoRotateInterval;
+
+function startAutoRotate() {
+  if (autoRotateInterval) clearInterval(autoRotateInterval);
+  autoRotateInterval = setInterval(() => {
+    const awardsContainer = document.querySelector('.awards-container');
+    if (awardsContainer) {
+      changeAward(1);
+    }
+  }, 5000);
+}
+
+// Start auto-rotate after initialization
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(startAutoRotate, 1000);
+});
+
 // FAQ Toggle Function
 function toggleFAQ(button) {
   const faqItem = button.closest('.faq-item');

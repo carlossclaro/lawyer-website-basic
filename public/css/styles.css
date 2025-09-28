@@ -1206,16 +1206,9 @@ body.privacy-page .mobile-dropdown-content a:hover {
   padding-left: 3rem;
 }
 
-.left-side::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 10px;
-  height: 100%;
-  background-color: var(--accent-color);
-  border-radius: 2px;
-}
+  .left-side::before {
+    display: none;
+  }
 
 /* Index page specific: make left-side before line match flex container height */
 .index-hero-section ~ section .flex-container {
@@ -2701,7 +2694,7 @@ body.privacy-page .mobile-dropdown-content a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 0;
+  padding: 0.75rem 1rem;
   background: none;
   color: var(--primary-color);
   text-decoration: none;
@@ -2711,7 +2704,6 @@ body.privacy-page .mobile-dropdown-content a:hover {
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   background-color: transparent;
-  padding: 0.5rem 1rem;
   font-family: var(--font-family-primary);
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -3630,7 +3622,7 @@ body.privacy-page .mobile-dropdown-content a:hover {
   
   .text-overlay {
     padding: 1rem;
-    top: 50%; /* Center vertically */
+    /* top: 50%; Center vertically */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
@@ -3710,7 +3702,7 @@ body.privacy-page .mobile-dropdown-content a:hover {
   }
   
   .team-more-info-button {
-    padding: 0.5rem 0;
+    padding: 0.75rem 1rem;
     font-size: 0.95rem;
   }
   
@@ -4654,6 +4646,25 @@ a:focus {
   overflow: hidden;
 }
 
+.awards-section h3 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.awards-section .awards-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--dark-grey);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .awards-section::before {
   content: '';
   position: absolute;
@@ -4665,17 +4676,126 @@ a:focus {
   pointer-events: none;
 }
 
+.awards-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.awards-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Desktop: Show 3 awards at once */
+@media (min-width: 769px) {
+  .awards-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .award-item {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Tablet: Show 2 awards at once */
+@media (max-width: 768px) and (min-width: 481px) {
+  .awards-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  
+  .award-item {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Mobile: Show 1 award at once, centered */
+@media (max-width: 480px) {
+  .awards-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  
+  .award-item {
+    flex: 0 0 280px;
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+
 .awards-container {
   display: flex;
-  gap: 0.125rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.125rem 0 0.25rem 0;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) transparent;
-  white-space: nowrap;
-  flex-wrap: nowrap;
+  gap: 2rem;
+  overflow: visible;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: flex-start;
+  align-items: center;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.award-nav {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.award-nav:hover {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.award-nav:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.award-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(166, 157, 132, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--accent-color);
+  transform: scale(1.2);
 }
 
 .awards-container::-webkit-scrollbar {
@@ -4699,15 +4819,20 @@ a:focus {
 .award-item {
   background: transparent;
   text-align: center;
-  padding: 0.125rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 0 0 280px;
-  min-width: 280px;
-  max-width: 280px;
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
   flex-shrink: 0;
+  border-radius: 16px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  opacity: 1;
+  visibility: visible;
 }
 
 .award-item img {
@@ -4717,17 +4842,15 @@ a:focus {
   margin-bottom: 1.5rem;
 }
 
-/* Commented out award text for now */
-/*
 .award-item p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--primary-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--dark-grey);
   font-weight: 500;
-  margin: 0;
+  margin: 0.75rem 0 0 0;
   font-family: var(--font-family-secondary);
+  text-align: center;
 }
-*/
 
 /* Company Page Mobile Responsive Styles */
 @media (max-width: 768px) {
@@ -4735,30 +4858,41 @@ a:focus {
   
   /* Hero Section Mobile */
   .company-page .hero-section {
-    height: 45vh;
-    min-height: 45vh;
-    padding-top: 60px;
+    height: 50vh;
+    min-height: 50vh;
+    padding-top: 100px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
   
   .company-page .image-with-text {
-    height: 45vh;
-    min-height: 45vh;
+    height: 50vh;
+    min-height: 50vh;
   }
   
   .company-page .hero-content {
-    padding: 0 1.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    margin: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
   }
   
   .company-page .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
   }
   
   .company-page .hero-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: var(--dark-grey);
   }
   
   /* Stats Container Mobile - Clean Card Design */
@@ -4813,22 +4947,136 @@ a:focus {
   
   /* About Section Mobile */
   .company-page .about-section {
-    padding: 3rem;
+    padding: 3rem 1rem !important;
     margin-top: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   }
   
   .company-page .about-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
     text-align: center;
     color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .company-page .about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
   }
   
   .company-page .about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--dark-grey);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Hide bars on mobile/tablet for company page */
+  .company-page .about-left-side::before,
+  .company-page .left-side::before {
+    display: none !important;
+  }
+  
+  .company-page .about-left-side {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 100%;
+  }
+  
+  .company-page .left-side {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 100%;
+  }
+  
+  .company-page .left-side h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+  
+  .company-page .left-side p {
+    text-align: center;
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    color: var(--dark-grey);
+  }
+  
+  /* Our Values heading */
+  .company-page .left-side h3:last-of-type {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .company-page .left-side h3:last-of-type::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+  }
+  
+  /* Values list styling */
+  .company-page .values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .company-page .values-list li {
+    padding: 1rem 0 1rem 1.5rem;
+    border-bottom: 1px solid rgba(166, 157, 132, 0.1);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark-grey);
+    position: relative;
+  }
+  
+  .company-page .values-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .company-page .values-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  .company-page .values-list li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline;
   }
   
   /* Owner Section Mobile */
@@ -4843,10 +5091,24 @@ a:focus {
     text-align: center;
   }
   
-  .owner-section .section-header h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.75rem;
+  .owner-section .section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .owner-section .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
   }
   
   .owner-section .flex-container {
@@ -4856,17 +5118,22 @@ a:focus {
   }
   
   .owner-image {
-    max-width: 300px;
-    height: 350px;
+    max-width: 350px;
+    height: 400px;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .owner-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   }
   
   .owner-content {
@@ -4875,15 +5142,29 @@ a:focus {
   }
   
   .owner-content blockquote {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
     margin-bottom: 2rem;
     font-style: italic;
-    color: #555;
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: var(--dark-grey);
+    background: linear-gradient(135deg, rgba(166, 157, 132, 0.05) 0%, rgba(166, 157, 132, 0.1) 100%);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .owner-content blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--accent-color);
+    font-family: serif;
+    line-height: 1;
+    opacity: 0.7;
   }
   
   .owner-info {
@@ -4972,28 +5253,46 @@ a:focus {
   .awards-section h3 {
     font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
+    font-weight: 700;
+  }
+  
+  .awards-section .awards-description {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--dark-grey);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .awards-carousel {
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .award-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
   
   .awards-container {
     gap: 1rem;
-    padding: 1rem 0 2rem 0;
-    margin: 0 -0.5rem;
+    max-width: 100%;
   }
   
   .award-item {
-    flex: 0 0 200px;
-    min-width: 200px;
-    max-width: 200px;
+    flex: 0 0 250px;
+    min-width: 250px;
+    max-width: 250px;
     padding: 1.5rem 1rem;
-
     text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .award-item:hover {
-    transform: translateY(-4px);
   }
   
   .award-item img {
@@ -5002,29 +5301,48 @@ a:focus {
     object-fit: contain;
     margin-bottom: 0.75rem;
   }
+  
+  .award-item p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-top: 0.5rem;
+  }
+  
+  .award-dots {
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   /* Hero Section Small Mobile */
   .company-page .hero-section {
-    height: 40vh;
-    min-height: 40vh;
-    padding-top: 50px;
+    height: 45vh;
+    min-height: 45vh;
+    padding-top: 80px;
   }
   
   .company-page .image-with-text {
-    height: 40vh;
-    min-height: 40vh;
+    height: 45vh;
+    min-height: 45vh;
+  }
+  
+  .company-page .hero-content {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem;
+    position: relative;
+    z-index: 10;
   }
   
   .company-page .hero-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1.3;
+    margin-bottom: 1rem;
   }
   
   .company-page .hero-content p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
   
   /* Stats Container Small Mobile */
@@ -5078,17 +5396,80 @@ a:focus {
   
   /* About Section Small Mobile */
   .company-page .about-section {
-    padding: 0 0.5rem 2rem 0.5rem !important;
+    padding: 2rem 1rem !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   }
   
   .company-page .about-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .company-page .about-section h2::after {
+    width: 40px;
+    height: 2px;
   }
   
   .company-page .about-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Hide bars on small mobile for company page */
+  .company-page .about-left-side::before,
+  .company-page .left-side::before {
+    display: none !important;
+  }
+  
+  .company-page .about-left-side {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    max-width: 100%;
+  }
+  
+  .company-page .left-side {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    max-width: 100%;
+  }
+  
+  .company-page .left-side h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .company-page .left-side h3:last-of-type {
+    font-size: 1.7rem;
+    margin-top: 1.5rem;
+  }
+  
+  .company-page .left-side h3:last-of-type::after {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .company-page .left-side p {
     font-size: 0.9rem;
-    line-height: 1.5;
+    text-align: center;
+  }
+  
+  .company-page .values-list li {
+    font-size: 0.85rem;
+    padding: 0.75rem 0 0.75rem 1.2rem;
+    position: relative;
+  }
+  
+  .company-page .values-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1;
   }
   
   /* Owner Section Small Mobile */
@@ -5097,8 +5478,24 @@ a:focus {
     margin-top: 0.5rem;
   }
   
-  .owner-section .section-header h3 {
-    font-size: 1.3rem;
+  .owner-section .section-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .owner-section .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
   }
   
   .owner-section .flex-container {
@@ -5106,7 +5503,22 @@ a:focus {
   }
   
   .owner-image {
-    max-width: 220px;
+    max-width: 280px;
+    height: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .owner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   }
   
   .owner-info {
@@ -5121,8 +5533,21 @@ a:focus {
     text-align: center;
   }
   
+  .owner-content blockquote {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .owner-content blockquote::before {
+    font-size: 3rem;
+    top: 5px;
+    left: 15px;
+  }
+  
   .owner-content blockquote h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .owner-content p {
@@ -5172,25 +5597,64 @@ a:focus {
   
   /* Awards Section Small Mobile */
   .awards-section {
-    padding: 1rem 0.5rem;
+    padding: 2rem 1rem;
     margin-top: 0.5rem;
   }
   
+  .awards-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .awards-section .awards-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .awards-carousel {
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .award-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
   .awards-container {
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
   
   .award-item {
-    flex: 0 0 140px;
-    min-width: 140px;
-    max-width: 140px;
-    padding: 0.25rem;
+    flex: 0 0 200px;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 1rem 0.5rem;
   }
   
   .award-item img {
     width: 80px;
     height: 80px;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .award-item p {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    margin-top: 0.25rem;
+  }
+  
+  .award-dots {
+    margin-top: 0.75rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
   }
 }
 
@@ -5316,30 +5780,32 @@ a:focus {
 .values-list {
   list-style: none;
   margin: 2rem 0;
+  padding: 0;
 }
 
 .values-list li {
   margin-bottom: 1.5rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   position: relative;
   font-size: 1.1rem;
   line-height: 1.7;
 }
 
 .values-list li::before {
-  content: "";
+  content: '→';
   position: absolute;
   left: 0;
   top: 0.5rem;
-  width: 6px;
-  height: 6px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 1;
 }
 
 .values-list strong {
   color: var(--primary-color);
   font-weight: 700;
+  display: inline;
 }
 
 /* Page-specific styles for info.html */
@@ -5729,27 +6195,41 @@ html {
   
   /* Info page mobile hero section */
   .info-page .hero-section {
-    height: 30vh;
-    min-height: 30vh;
-    padding-top: 70px;
+    height: 50vh;
+    min-height: 50vh;
+    padding-top: 100px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
 
   .info-page .image-with-text {
-    height: 30vh;
-    min-height: 30vh;
+    height: 50vh;
+    min-height: 50vh;
+  }
+  
+  .info-page .hero-content {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    margin: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-page .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+  
+  .info-page .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--dark-grey);
   }
 
-  /* Company page mobile hero section */
-  .company-page .hero-section {
-    height: 65vh;
-    min-height: 65vh;
-    padding-top: 70px;
-  }
-
-  .company-page .image-with-text {
-    height: 65vh;
-    min-height: 65vh;
-  }
   
   /* Info page mobile stats */
   .info-page .company-stats-container {
@@ -5763,24 +6243,38 @@ html {
   /* Smaller mobile screens - 1x1 grid */
   @media (max-width: 480px) {
     .info-page .hero-section {
-      height: 35vh;
-      min-height: 35vh;
+      height: 45vh;
+      min-height: 45vh;
+      padding-top: 80px;
     }
 
     .info-page .image-with-text {
-      height: 35vh;
-      min-height: 35vh;
+      height: 45vh;
+      min-height: 45vh;
+    }
+    
+    .info-page .hero-content {
+      padding: 1.5rem 1rem;
+      margin: 0.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .info-page .hero-content h1 {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    
+    .info-page .hero-content p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      color: var(--dark-grey);
     }
 
-    .company-page .hero-section {
-      height: 70vh;
-      min-height: 70vh;
-    }
-
-    .company-page .image-with-text {
-      height: 70vh;
-      min-height: 70vh;
-    }
 
     .company-stats-container {
       grid-template-columns: 1fr;
@@ -5856,7 +6350,7 @@ html {
   }
 
   .about-left-side::before {
-    width: 8px;
+    display: none;
   }
 
   .about-right-side {
@@ -5921,13 +6415,13 @@ html {
   
   /* Info page mobile improvements */
   #more-information {
-    padding: 4rem 2rem;
-    padding-top: 6rem; /* Extra space for fixed navbar */
+    padding: 2rem 1rem;
+    padding-top: 3rem; /* Reduced space for fixed navbar */
   }
   
   .wrapper {
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
     max-width: 100%;
   }
   
@@ -5968,9 +6462,15 @@ html {
   }
   
   .mi-list li {
-    padding: 1rem 0 1rem 1.25rem;
+    padding: 1rem 0 1rem 1.5rem;
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+  
+  .mi-list li::before {
+    left: 0;
+    top: 1rem;
+    font-size: 1.1rem;
   }
   
   .mi-buttons {
@@ -5979,8 +6479,8 @@ html {
   
   .mi-dropdown {
     display: block;
-    margin-bottom: 1rem;
-    margin-top: 1.25rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
     padding: 0.875rem;
     font-size: 1rem;
     background: linear-gradient(135deg, rgba(166, 157, 132, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
@@ -6724,6 +7224,15 @@ body.bg-white {
   z-index: 10;
 }
 
+.info-page .scroll-down-arrow a {
+  width: 35px;
+  height: 35px;
+}
+
+.info-page .scroll-down-arrow ion-icon {
+  font-size: 16px;
+}
+
 /* Responsive styles for company hero stats */
 @media (max-width: 768px) {
   .company-hero-stats {
@@ -6735,7 +7244,7 @@ body.bg-white {
 
   /* Info page mobile scroll arrow */
   .info-page .scroll-down-arrow {
-    bottom: 15px;
+    display: none;
   }
 
   .company-hero-stats-container {
