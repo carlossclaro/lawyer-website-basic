@@ -1,6 +1,13 @@
-// Awards Carousel Functions
+// Awards Carousel Functions - Clean Version
 let currentAwardIndex = 0;
 const totalAwards = 7;
+
+// Mobile Carousel Variables
+let currentMobileAwardIndex = 0;
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+let initialTransform = 0;
 
 function getAwardsPerView() {
   if (window.innerWidth >= 769) return 3; // Desktop: 3 awards
@@ -18,39 +25,97 @@ function getTotalSlides() {
 function initializeCarousel() {
   const awardsContainer = document.querySelector('.awards-container');
   const dotsContainer = document.querySelector('.award-dots');
+  const awardItems = document.querySelectorAll('.award-item');
+  const mobileCarousel = document.querySelector('.awards-mobile-carousel');
   
-  if (!awardsContainer || !dotsContainer) return;
+  if (!awardsContainer || !dotsContainer || !awardItems.length) return;
   
-  // Reset to first slide with proper centering
+  // Check if mobile
+  if (window.innerWidth <= 480) {
+    // Show mobile carousel, hide desktop carousel
+    if (mobileCarousel) {
+      mobileCarousel.style.display = 'block';
+      initializeMobileCarousel();
+    }
+    awardsContainer.closest('.awards-carousel').style.display = 'none';
+    dotsContainer.style.display = 'none';
+    return;
+  } else {
+    // Show desktop carousel, hide mobile carousel
+    if (mobileCarousel) mobileCarousel.style.display = 'none';
+    awardsContainer.closest('.awards-carousel').style.display = 'flex';
+    dotsContainer.style.display = 'flex';
+  }
+  
+  // Reset to first slide
   currentAwardIndex = 0;
-  
-  // Calculate initial centering
-  const awardsPerView = getAwardsPerView();
-  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
-  const gap = 32; // 2rem gap
-  const totalItemWidth = itemWidth + gap;
-  
-  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
-  const slideWidth = totalItemWidth * awardsPerView;
-  const centerOffset = (wrapperWidth - slideWidth) / 2;
-  
-  awardsContainer.style.transform = `translateX(${centerOffset}px)`;
-  
-  // Calculate correct number of slides and create dots
-  const totalSlides = getTotalSlides();
   
   // Clear existing dots
   dotsContainer.innerHTML = '';
   
-  // Create correct number of dots
-  for (let i = 0; i < totalSlides; i++) {
+  // Create dots for all awards (circular carousel)
+  for (let i = 0; i < totalAwards; i++) {
     const dot = document.createElement('span');
     dot.className = 'dot';
     if (i === 0) dot.classList.add('active');
     dot.onclick = () => currentAward(i + 1);
     dotsContainer.appendChild(dot);
   }
+  
+  // Set initial positioning
+  updateAwardPositions();
+  
+  // Debug info
+  console.log(`Carousel initialized: ${getTotalSlides()} slides, ${getAwardsPerView()} awards per view, ${totalAwards} total awards`);
 }
+
+// Update award positions and styling - Circular carousel
+function updateAwardPositions() {
+  const awardItems = document.querySelectorAll('.award-item');
+  
+  // Remove all position classes
+  awardItems.forEach(item => {
+    item.classList.remove('active', 'prev', 'next');
+  });
+  
+  // Show all awards but only highlight the current one
+  // Note: awardItems[0] is duplicate of last award, awardItems[8] is duplicate of first award
+  awardItems.forEach((item, index) => {
+    if (index === currentAwardIndex + 1) { // +1 because first item is duplicate
+      item.classList.add('active');
+      console.log(`Award ${currentAwardIndex} is ACTIVE`);
+    } else {
+      // All other awards are visible but not prominent
+      item.classList.add('prev');
+    }
+  });
+  
+  // Update carousel position for circular effect
+  updateCircularCarouselPosition();
+}
+
+// Update circular carousel position
+function updateCircularCarouselPosition() {
+  const awardsContainer = document.querySelector('.awards-container');
+  const awardsWrapper = document.querySelector('.awards-wrapper');
+  
+  if (!awardsContainer || !awardsWrapper) return;
+  
+  const itemWidth = window.innerWidth >= 769 ? 300 : window.innerWidth >= 481 ? 300 : 180;
+  const gap = 24; // 1.5rem gap
+  const totalItemWidth = itemWidth + gap;
+  
+  // Calculate the center position
+  const wrapperWidth = awardsWrapper.offsetWidth;
+  const centerOffset = (wrapperWidth - itemWidth) / 2;
+  
+  // Calculate how much to slide to center the current award
+  // +1 because first item is duplicate, so we need to offset by one more position
+  const slideOffset = (currentAwardIndex + 1) * totalItemWidth;
+  
+  awardsContainer.style.transform = `translateX(${centerOffset - slideOffset}px)`;
+}
+
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeCarousel);
@@ -61,42 +126,27 @@ window.addEventListener('resize', () => {
 });
 
 function changeAward(direction) {
-  const awardsContainer = document.querySelector('.awards-container');
   const dots = document.querySelectorAll('.dot');
-  const totalSlides = getTotalSlides();
   
   // Remove active class from current dot
   if (dots[currentAwardIndex]) {
     dots[currentAwardIndex].classList.remove('active');
   }
   
-  // Calculate new index with proper bounds checking
+  // Calculate new index with circular navigation
   const newIndex = currentAwardIndex + direction;
   
-  // Only allow navigation within valid bounds
-  if (newIndex >= 0 && newIndex < totalSlides) {
-    currentAwardIndex = newIndex;
-  } else if (newIndex >= totalSlides) {
-    // If trying to go beyond last slide, reset to first
-    currentAwardIndex = 0;
+  // Circular navigation - wrap around
+  if (newIndex >= totalAwards) {
+    currentAwardIndex = 0; // Go to first award
   } else if (newIndex < 0) {
-    // If trying to go before first slide, go to last
-    currentAwardIndex = totalSlides - 1;
+    currentAwardIndex = totalAwards - 1; // Go to last award
+  } else {
+    currentAwardIndex = newIndex;
   }
   
-  // Calculate transform value with proper centering
-  const awardsPerView = getAwardsPerView();
-  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
-  const gap = 32; // 2rem gap
-  const totalItemWidth = itemWidth + gap;
-  
-  // Calculate the offset to center the current slide
-  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
-  const slideWidth = totalItemWidth * awardsPerView;
-  const centerOffset = (wrapperWidth - slideWidth) / 2;
-  
-  const translateX = -(currentAwardIndex * totalItemWidth * awardsPerView) + centerOffset;
-  awardsContainer.style.transform = `translateX(${translateX}px)`;
+  // Update award positions and styling
+  updateAwardPositions();
   
   // Add active class to new dot
   if (dots[currentAwardIndex]) {
@@ -105,7 +155,6 @@ function changeAward(direction) {
 }
 
 function currentAward(index) {
-  const awardsContainer = document.querySelector('.awards-container');
   const dots = document.querySelectorAll('.dot');
   
   // Remove active class from current dot
@@ -117,26 +166,14 @@ function currentAward(index) {
   currentAwardIndex = index - 1;
   
   // Ensure index is within bounds
-  const totalSlides = getTotalSlides();
-  if (currentAwardIndex >= totalSlides) {
-    currentAwardIndex = totalSlides - 1;
+  if (currentAwardIndex >= totalAwards) {
+    currentAwardIndex = totalAwards - 1;
   } else if (currentAwardIndex < 0) {
     currentAwardIndex = 0;
   }
   
-  // Calculate transform value with proper centering
-  const awardsPerView = getAwardsPerView();
-  const itemWidth = window.innerWidth >= 769 ? 320 : window.innerWidth >= 481 ? 300 : 280;
-  const gap = 32; // 2rem gap
-  const totalItemWidth = itemWidth + gap;
-  
-  // Calculate the offset to center the current slide
-  const wrapperWidth = document.querySelector('.awards-wrapper').offsetWidth;
-  const slideWidth = totalItemWidth * awardsPerView;
-  const centerOffset = (wrapperWidth - slideWidth) / 2;
-  
-  const translateX = -(currentAwardIndex * totalItemWidth * awardsPerView) + centerOffset;
-  awardsContainer.style.transform = `translateX(${translateX}px)`;
+  // Update award positions and styling
+  updateAwardPositions();
   
   // Add active class to new dot
   if (dots[currentAwardIndex]) {
@@ -439,11 +476,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Show the default section based on URL parameter or default to "criminal"
+// Show the default section based on URL parameter or default to "urgent-legal-assistance"
 // Only run this on the info.html page
 window.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname.includes('info.html')) {
-    const type = new URLSearchParams(window.location.search).get("type") || "criminal";
+    const type = new URLSearchParams(window.location.search).get("type") || "urgent-legal-assistance";
     goToInfo(type);
   }
 });
@@ -765,7 +802,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Enhanced Navigation Event Listeners and Initialization
+// Enhanced Navigation Event Listeners and Initializationawa
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize navigation functionality
   initializeNavigation();
@@ -981,5 +1018,185 @@ function initScrollAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
   initScrollAnimations();
 });
+
+// Mobile Carousel Functions
+function initializeMobileCarousel() {
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  const mobileDots = document.querySelectorAll('.mobile-dot');
+  
+  if (!mobileCarouselContainer) {
+    console.log('Mobile carousel container not found');
+    return;
+  }
+  
+  console.log('Initializing mobile carousel with', mobileDots.length, 'dots');
+  
+  // Reset variables
+  currentMobileAwardIndex = 0;
+  isDragging = false;
+  
+  // Add touch event listeners
+  mobileCarouselContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+  mobileCarouselContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+  mobileCarouselContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
+  
+  // Add mouse event listeners for desktop testing
+  mobileCarouselContainer.addEventListener('mousedown', handleMouseDown);
+  mobileCarouselContainer.addEventListener('mousemove', handleMouseMove);
+  mobileCarouselContainer.addEventListener('mouseup', handleMouseUp);
+  mobileCarouselContainer.addEventListener('mouseleave', handleMouseUp);
+  
+  // Add click event listeners to dots
+  mobileDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      console.log('Dot clicked:', index);
+      goToMobileSlide(index);
+    });
+  });
+  
+  // Set initial position
+  updateMobileCarouselPosition();
+  console.log('Mobile carousel initialized');
+}
+
+function handleTouchStart(e) {
+  console.log('Touch start');
+  isDragging = true;
+  startX = e.touches[0].clientX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  const transform = mobileCarouselContainer.style.transform;
+  initialTransform = transform ? parseFloat(transform.match(/-?\d+\.?\d*/)[0]) : 0;
+  console.log('Start X:', startX, 'Initial transform:', initialTransform);
+}
+
+function handleTouchMove(e) {
+  if (!isDragging) return;
+  
+  e.preventDefault();
+  currentX = e.touches[0].clientX;
+  const diffX = currentX - startX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  
+  // Convert pixel difference to percentage
+  const containerWidth = mobileCarouselContainer.parentElement.offsetWidth;
+  const diffPercent = (diffX / containerWidth) * 100;
+  
+  // Apply the drag transform
+  mobileCarouselContainer.style.transform = `translateX(${initialTransform + diffPercent}%)`;
+}
+
+function handleTouchEnd(e) {
+  if (!isDragging) return;
+  
+  console.log('Touch end');
+  isDragging = false;
+  const diffX = currentX - startX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  const containerWidth = mobileCarouselContainer.parentElement.offsetWidth;
+  const threshold = containerWidth * 0.15; // 15% of container width
+  
+  console.log('Diff X:', diffX, 'Threshold:', threshold);
+  
+  if (Math.abs(diffX) > threshold) {
+    if (diffX > 0) {
+      // Swipe right - go to previous slide
+      console.log('Swipe right - going to previous slide');
+      goToMobileSlide(currentMobileAwardIndex - 1);
+    } else {
+      // Swipe left - go to next slide
+      console.log('Swipe left - going to next slide');
+      goToMobileSlide(currentMobileAwardIndex + 1);
+    }
+  } else {
+    // Snap back to current position
+    console.log('Snap back to current position');
+    updateMobileCarouselPosition();
+  }
+}
+
+function handleMouseDown(e) {
+  isDragging = true;
+  startX = e.clientX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  const transform = mobileCarouselContainer.style.transform;
+  initialTransform = transform ? parseFloat(transform.match(/-?\d+\.?\d*/)[0]) : 0;
+  e.preventDefault();
+}
+
+function handleMouseMove(e) {
+  if (!isDragging) return;
+  
+  e.preventDefault();
+  currentX = e.clientX;
+  const diffX = currentX - startX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  
+  // Convert pixel difference to percentage
+  const containerWidth = mobileCarouselContainer.parentElement.offsetWidth;
+  const diffPercent = (diffX / containerWidth) * 100;
+  
+  // Apply the drag transform
+  mobileCarouselContainer.style.transform = `translateX(${initialTransform + diffPercent}%)`;
+}
+
+function handleMouseUp(e) {
+  if (!isDragging) return;
+  
+  isDragging = false;
+  const diffX = currentX - startX;
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  const containerWidth = mobileCarouselContainer.parentElement.offsetWidth;
+  const threshold = containerWidth * 0.15; // 15% of container width
+  
+  if (Math.abs(diffX) > threshold) {
+    if (diffX > 0) {
+      // Swipe right - go to previous slide
+      goToMobileSlide(currentMobileAwardIndex - 1);
+    } else {
+      // Swipe left - go to next slide
+      goToMobileSlide(currentMobileAwardIndex + 1);
+    }
+  } else {
+    // Snap back to current position
+    updateMobileCarouselPosition();
+  }
+}
+
+function goToMobileSlide(index) {
+  const totalSlides = document.querySelectorAll('.mobile-award-item').length;
+  console.log('Going to slide:', index, 'Total slides:', totalSlides);
+  
+  // Handle circular navigation
+  if (index < 0) {
+    currentMobileAwardIndex = totalSlides - 1;
+  } else if (index >= totalSlides) {
+    currentMobileAwardIndex = 0;
+  } else {
+    currentMobileAwardIndex = index;
+  }
+  
+  console.log('Current index set to:', currentMobileAwardIndex);
+  updateMobileCarouselPosition();
+  updateMobileDots();
+}
+
+function updateMobileCarouselPosition() {
+  const mobileCarouselContainer = document.querySelector('.mobile-carousel-container');
+  if (!mobileCarouselContainer) return;
+  
+  // Calculate the width of each slide including margins
+  const slideWidth = 100; // Each slide is 100% width
+  const translateX = -(currentMobileAwardIndex * slideWidth);
+  
+  console.log('Updating position - Index:', currentMobileAwardIndex, 'TranslateX:', translateX);
+  mobileCarouselContainer.style.transform = `translateX(${translateX}%)`;
+}
+
+function updateMobileDots() {
+  const mobileDots = document.querySelectorAll('.mobile-dot');
+  mobileDots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentMobileAwardIndex);
+  });
+}
 
 

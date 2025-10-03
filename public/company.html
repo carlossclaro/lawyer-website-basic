@@ -143,11 +143,11 @@
           </div>
           
           <!-- Scroll Down Arrow -->
-          <div class="scroll-down-arrow">
+          <!-- <div class="scroll-down-arrow">
             <a href="#work-total-container" aria-label="Прокрутити вниз до наступної секції">
               <ion-icon name="chevron-down-outline"></ion-icon>
             </a>
-          </div>
+          </div> -->
 
           <!-- Company Statistics Section -->
           <section class="company-hero-stats">
@@ -226,7 +226,7 @@
         <section id="company-owner-section" class="owner-section">
           <div class="content-wrapper">
             <div class="section-header">
-              <h2>Керівництво</h2>
+       
             </div>
             <div class="flex-container">
               <div class="owner-image slide-up">
@@ -304,6 +304,13 @@
               
               <div class="awards-wrapper">
                 <div class="awards-container">
+                <!-- Duplicate last award at beginning for seamless loop -->
+                <div class="award-item" data-index="-1">
+                  <img src="./images/medals/medal-9.svg" alt="Нагорода 9" />
+                  <p>Національний бізнес рейтинг – «Лідер галузі 2012»</p>
+                </div>
+                
+                <!-- Original awards -->
                 <div class="award-item active" data-index="0">
                   <img src="./images/medals/medal-6.svg" alt="Нагорода 6" />
                   <p>«Вибір клієнта. ТОП-100 найкращих юристів України 2021»</p>
@@ -332,6 +339,12 @@
                   <img src="./images/medals/medal-9.svg" alt="Нагорода 9" />
                   <p>Національний бізнес рейтинг – «Лідер галузі 2012»</p>
                 </div>
+                
+                <!-- Duplicate first award at end for seamless loop -->
+                <div class="award-item" data-index="7">
+                  <img src="./images/medals/medal-6.svg" alt="Нагорода 6" />
+                  <p>«Вибір клієнта. ТОП-100 найкращих юристів України 2021»</p>
+                </div>
               </div>
               </div>
               
@@ -341,10 +354,54 @@
             </div>
             
             <div class="award-dots">
-              <span class="dot active" onclick="currentAward(1)"></span>
-              <span class="dot" onclick="currentAward(2)"></span>
-              <span class="dot" onclick="currentAward(3)"></span>
-              <span class="dot" onclick="currentAward(4)"></span>
+              <!-- Dots will be created dynamically by JavaScript -->
+            </div>
+            
+            <!-- Mobile Awards Carousel (hidden on desktop) -->
+            <div class="awards-mobile-carousel" style="display: none;">
+              <div class="mobile-carousel-wrapper">
+                <div class="mobile-carousel-container">
+                  <div class="mobile-award-item active">
+                    <img src="./images/medals/medal-6.svg" alt="Нагорода 6" />
+                    <p>«Вибір клієнта. ТОП-100 найкращих юристів України 2021»</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-5.png" alt="Нагорода 5" />
+                    <p>Рейтинг кращих компаній України– «Вибір країни 2020»</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-1.png" alt="Нагорода 1" />
+                    <p>Національний бізнес рейтинг – «Лідер галузі 2019»</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-4.png" alt="Нагорода 4" />
+                    <p>Національний бізнес рейтинг – «Лідер року 2018»</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-7.svg" alt="Нагорода 7" />
+                    <p>«Національний рейтінг якості товарів та послуг» у 2017</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-8.svg" alt="Нагорода 8" />
+                    <p>Рейтинг кращих компаній України – «Вибір країни 2016»</p>
+                  </div>
+                  <div class="mobile-award-item">
+                    <img src="./images/medals/medal-9.svg" alt="Нагорода 9" />
+                    <p>Національний бізнес рейтинг – «Лідер галузі 2012»</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Mobile carousel navigation dots -->
+              <div class="mobile-carousel-dots">
+                <span class="mobile-dot active" data-index="0"></span>
+                <span class="mobile-dot" data-index="1"></span>
+                <span class="mobile-dot" data-index="2"></span>
+                <span class="mobile-dot" data-index="3"></span>
+                <span class="mobile-dot" data-index="4"></span>
+                <span class="mobile-dot" data-index="5"></span>
+                <span class="mobile-dot" data-index="6"></span>
+              </div>
             </div>
           </div>
         </section>
@@ -519,8 +576,9 @@
                   </p>
                   <div class="social-links bottom-icons">
                     <a href="https://t.me/+380674857400" aria-label="Telegram" target="_blank" rel="noopener">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.78 15.89l-1.42 5.66c-.19.76.55 1.33 1.28.98l5.64-2.18c.5-.19.93-.47 1.25-.82L22 12c.39-.39.39-1.02 0-1.41L21 9.5c-.39-.39-1.02-.39-1.41 0L17 12.5c-.32.35-.75.63-1.25.82L10.11 15.5c-.73.35-1.47-.22-1.28-.98z"/>
+                        <path d="M8 8l8 4-8 4"/>
                       </svg>
                     </a>
                     <a href="viber://chat?number=+380674857400" aria-label="Viber" target="_blank" rel="noopener">
@@ -554,50 +612,38 @@
                   <ul>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=criminal">
-                        Кримінальні справи
+                      <a href="info.html?type=urgent-legal-assistance">
+                        Невідкладна юридична допомога
                       </a>
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=civil">
-                        Цивільні справи
+                      <a href="info.html?type=private-clients">
+                        Приватні клієнти
                       </a>
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=family">
-                        Сімейні справи
+                      <a href="info.html?type=business-protection">
+                        Комплексний захист бізнесу
                       </a>
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=commercial">
-                        Господарські справи
+                      <a href="info.html?type=real-estate-and-construction">
+                        Нерухомість і будівництво
                       </a>
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=labor">
-                        Трудові справи
+                      <a href="info.html?type=tax-and-customs-disputes">
+                        Податкові і митні спори
                       </a>
                     </li>
                     <li>
                       <span>›</span>
-                      <a href="info.html?type=credit">
-                        Кредитні спори
-                      </a>
-                    </li>
-                    <li>
-                      <span>›</span>
-                      <a href="info.html?type=admin">
-                        Адміністративні справи
-                      </a>
-                    </li>
-                    <li>
-                      <span>›</span>
-                      <a href="info.html?type=business">
-                        Захист бізнесу
+                      <a href="info.html?type=intellectual-property-protection">
+                        Захист інтелектуальної власності
                       </a>
                     </li>
                   </ul>
@@ -622,8 +668,9 @@
                   </div>
                   <div class="contact-item">
                     <a href="https://t.me/+380674857400" target="_blank" rel="noopener">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.06-.06-.14-.04-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.78 15.89l-1.42 5.66c-.19.76.55 1.33 1.28.98l5.64-2.18c.5-.19.93-.47 1.25-.82L22 12c.39-.39.39-1.02 0-1.41L21 9.5c-.39-.39-1.02-.39-1.41 0L17 12.5c-.32.35-.75.63-1.25.82L10.11 15.5c-.73.35-1.47-.22-1.28-.98z"/>
+                        <path d="M8 8l8 4-8 4"/>
                       </svg>
                     </a>
                     <div>
